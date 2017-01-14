@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
+import org.usfirst.frc.team2035.robot.commands.*;
+import org.usfirst.frc.team2035.robot.subsystems.*;
 import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2035.robot.subsystems.ExampleSubsystem;
 
@@ -19,10 +20,13 @@ import org.usfirst.frc.team2035.robot.subsystems.ExampleSubsystem;
  * directory.
  */
 public class Robot extends IterativeRobot {
-
+/*The nlift thing is something I took from last years robot. 
+ * I did it to try and fix an error. 
+ * It's gone now, but I'm not sure that doing this helped. 
+ * C'est la vie.*/
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
-
+	public static NewElevator nlift;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -36,6 +40,7 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		nlift = new NewElevator();
 	}
 
 	/**
@@ -112,5 +117,11 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void testPeriodic() {
 		LiveWindow.run();
+	}
+	//Idea coppied from last years code. May not have been needed. C'est la vie.
+	public static NewElevator getNewElevator()
+	{
+		return nlift;
+		
 	}
 }

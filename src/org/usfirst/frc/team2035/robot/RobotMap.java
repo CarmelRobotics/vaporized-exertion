@@ -1,4 +1,6 @@
 package org.usfirst.frc.team2035.robot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -16,4 +18,17 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
+	
+	// Motor PWMs
+	public static final int LIFT_MOTOR_FRONT_PWM = 0;
+	public static final int LIFT_MOTOR_BACK_PWM = 1;
+	//Joysticks
+	public static final int JOYSTICK_B_USB_NUMBER = 0;
+	public static final Joystick DRIVER_JOYSTICK_B = new Joystick(JOYSTICK_B_USB_NUMBER);
+	//Joystick Buttons
+	public static final JoystickButton LIFT = new JoystickButton(DRIVER_JOYSTICK_B,0);
+	//Speed
+	public static final double ELEVATOR_LIFT_UP = -1;
+	public static final double ELEVATOR_LIFT_Down = 1;
+	public static final double ELEVATOR_LIFT_STOP = 0;
 }
