@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class MotorBackward extends Command{
 	
-	private OurMotor motor = new OurMotor();
+	private OurMotor motor = new OurMotor(); 
 	
 	//public void motorBackward()
 	//{
