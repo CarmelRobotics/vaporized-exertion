@@ -1,9 +1,8 @@
 package org.usfirst.frc.team2035.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
-
-import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
-
+import org.usfirst.frc.team2035.robot.RobotMap;
+import org.usfirst.frc.team2035.robot.commands.*;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -36,4 +35,24 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	
+	private static Button forward;
+	private static Button backward;
+	private static Button stop;
+	//public static int firstPWM
+	public static final int firstPWM = 0;
+	public static void initialize()
+	{
+
+	forward = RobotMap.FORWARD;
+	backward = RobotMap.BACKWARD;
+	stop  = RobotMap.STOP;
+	//firstPWM = 0;
+	
+	
+	forward.whenPressed(new MotorForward());
+	backward.whenPressed(new MotorBackward());
+	stop.whenPressed(new MotorStop());
+	}
+	
 }
