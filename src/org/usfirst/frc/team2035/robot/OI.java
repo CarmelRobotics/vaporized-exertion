@@ -4,6 +4,13 @@ import edu.wpi.first.wpilibj.buttons.Button;
 
 import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
 
+import org.usfirst.frc.team2035.robot.commands.MotorBackward;
+
+import org.usfirst.frc.team2035.robot.commands.MotorForward;
+
+import org.usfirst.frc.team2035.robot.commands.MotorStop;
+
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -36,4 +43,51 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	
+	
+	public static final int OUR_MOTOR_PWM = 0;
+	
+	
+	
+	public static Button motorForward;
+	
+	public static Button motorBackward;
+	
+	public static Button motorStop;
+	
+	
+	
+	
+	
+	
+	public static void initialize() {
+	
+	
+	
+	motorForward = RobotMap.BUTTON_FORWARD;
+	
+	motorBackward = RobotMap.BUTTON_BACKWARD;
+	
+	motorStop= RobotMap.BUTTON_STOP;
+	
+	
+	
+	
+	motorForward.whenPressed(new MotorForward());
+	
+	
+	motorBackward.whenPressed(new MotorBackward());
+	
+	motorStop.whenPressed(new MotorStop());
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
 }
