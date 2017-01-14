@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2035.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team2035.robot.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,6 +21,7 @@ import org.usfirst.frc.team2035.robot.subsystems.ExampleSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static OurMotor motor;
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -32,7 +33,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		oi = new OI();
+		motor = new OurMotor();
+		OI.initialize();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
@@ -112,5 +114,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void testPeriodic() {
 		LiveWindow.run();
+	}
+	
+	public static OurMotor getMotor() {
+		return motor;
 	}
 }
