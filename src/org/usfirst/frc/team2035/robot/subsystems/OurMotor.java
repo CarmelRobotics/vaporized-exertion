@@ -15,7 +15,7 @@ public class OurMotor extends Subsystem {
 	
 	public OurMotor() {
 		
-		
+		motor = new Victor(0);
 		
 	}
 	
