@@ -20,14 +20,19 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
+	//PWMs
+	public static final int BALLSUCKER_MOTOR_PWM = 0;
+	public static final int ARM_MOTOR_PWM = 1;
 	
-	public static final int MOTOR_PWM = 0;
 	
+	//Joysticks
 	public static final int JOYSTICK_A_USB_NUMBER = 0;
     public static final Joystick DRIVER_JOYSTICK_A = new Joystick(JOYSTICK_A_USB_NUMBER);
     
-	
-	public static JoystickButton FORWARD = new JoystickButton(DRIVER_JOYSTICK_A, 1);
-    public static final JoystickButton BACKWARD = new JoystickButton(DRIVER_JOYSTICK_A, 2);
-    public static final JoystickButton STOP = new JoystickButton(DRIVER_JOYSTICK_A, 3);
+	//Buttons
+	public static final JoystickButton SPIN_IN = new JoystickButton(DRIVER_JOYSTICK_A, 1);
+    public static final JoystickButton SPIN_OUT = new JoystickButton(DRIVER_JOYSTICK_A, 2);
+    public static final JoystickButton SPIN_STOP = new JoystickButton(DRIVER_JOYSTICK_A, 3);
+    public static final JoystickButton ARM_UP = new JoystickButton(DRIVER_JOYSTICK_A, 4);
+    public static final JoystickButton ARM_DOWN = new JoystickButton(DRIVER_JOYSTICK_A, 5);
 }

@@ -36,23 +36,29 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
-	private static Button forward;
-	private static Button backward;
-	private static Button stop;
+	private static Button spinIn;
+	private static Button spinOut;
+	private static Button spinStop;
+	private static Button armUp;
+	private static Button armDown;
 	//public static int firstPWM
 	public static final int firstPWM = 0;
 	public static void initialize()
 	{
 
-	forward = RobotMap.FORWARD;
-	backward = RobotMap.BACKWARD;
-	stop  = RobotMap.STOP;
+	spinIn = RobotMap.SPIN_IN;
+	spinOut = RobotMap.SPIN_OUT;
+	spinStop  = RobotMap.SPIN_STOP;
 	//firstPWM = 0;
+	armUp = RobotMap.ARM_UP;
+	armDown = RobotMap.ARM_DOWN;
 	
+	spinIn.whenPressed(new SpinIn());
+	spinOut.whenPressed(new SpinOut());
+	spinStop.whenPressed(new SpinStop());
 	
-	forward.whenPressed(new MotorForward());
-	backward.whenPressed(new MotorBackward());
-	stop.whenPressed(new MotorStop());
+	armUp.whileHeld(new ArmUp());
+	armDown.whileHeld(new ArmDown());
 	}
 	
 }
