@@ -27,17 +27,14 @@ public class RobotMap {
 	
 	public static final Joystick DRIVER_JOYSTICK_A = new Joystick(JOYSTICK_A_USB_NUMBER);
 	
-	public static final JoystickButton BUTTON_FORWARD = new JoystickButton(DRIVER_JOYSTICK_A,0);
-	public static final JoystickButton BUTTON_BACKWARD = new JoystickButton(DRIVER_JOYSTICK_A,1);
-	public static final JoystickButton BUTTON_STOP = new JoystickButton(DRIVER_JOYSTICK_A,2);
+	public static final JoystickButton HANGERBUTTON_FORWARD = new JoystickButton(DRIVER_JOYSTICK_A,0);
+
 	
 	
+	public static final double HANGERMOTOR_FORWARD = 1.0;
+	public static final double HANGERMOTOR_STOP = 0.0;
 	
-	public static final double OUR_MOTOR_FOWARD = -1.0;
-	public static final double OUR_MOTOR_BACKWARD = 1.0;
-	public static final double OUR_MOTOR_STOP = 0.0;
-	
-	
+	public static final int HANGERMOTER_PWN = 0;
 	
 	
 	

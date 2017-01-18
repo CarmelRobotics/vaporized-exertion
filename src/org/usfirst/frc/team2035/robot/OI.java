@@ -3,12 +3,8 @@ package org.usfirst.frc.team2035.robot;
 import edu.wpi.first.wpilibj.buttons.Button;
 
 import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
+import org.usfirst.frc.team2035.robot.commands.HangerSpin;
 
-import org.usfirst.frc.team2035.robot.commands.MotorBackward;
-
-import org.usfirst.frc.team2035.robot.commands.MotorForward;
-
-import org.usfirst.frc.team2035.robot.commands.MotorStop;
 
 
 /**
@@ -49,11 +45,9 @@ public class OI {
 	
 	
 	
-	public static Button motorForward;
+	public static Button hangerSpin;
 	
-	public static Button motorBackward;
 	
-	public static Button motorStop;
 	
 	
 	
@@ -64,28 +58,15 @@ public class OI {
 	
 	
 	
-	motorForward = RobotMap.BUTTON_FORWARD;
-	
-	motorBackward = RobotMap.BUTTON_BACKWARD;
-	
-	motorStop= RobotMap.BUTTON_STOP;
-	
-	
-	
-	
-	motorForward.whenPressed(new MotorForward());
-	
-	
-	motorBackward.whenPressed(new MotorBackward());
-	
-	motorStop.whenPressed(new MotorStop());
+	hangerSpin = RobotMap.HANGERBUTTON_FORWARD;
 	
 	
 	
 	
 	
+	hangerSpin.whileHeld(new HangerSpin());
 	
-	
+
 	
 	
 	}

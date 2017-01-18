@@ -10,7 +10,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2035.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team2035.robot.subsystems.OurMotor;
+import org.usfirst.frc.team2035.robot.subsystems.Hanger;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,7 +24,7 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	
-	public static OurMotor motor;
+	public static Hanger hanger;
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -38,7 +39,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		
-		motor = new OurMotor();
+		hanger = new Hanger();
 		
 		
 		
@@ -115,7 +116,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		
-		//motor.moveForward();
+	
 		
 	}
 
@@ -130,11 +131,12 @@ public class Robot extends IterativeRobot {
 	
 	
 	
-	public static OurMotor getOurMotor() {
+	
+	
+	public static Hanger getHanger() {
 		
 		
-		return motor;
-		
+		return hanger;
 		
 		
 	}

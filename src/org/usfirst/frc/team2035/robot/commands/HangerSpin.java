@@ -2,22 +2,24 @@ package org.usfirst.frc.team2035.robot.commands;
 
 import org.usfirst.frc.team2035.robot.OI;
 import org.usfirst.frc.team2035.robot.Robot;
-import org.usfirst.frc.team2035.robot.subsystems.OurMotor;
+import org.usfirst.frc.team2035.robot.subsystems.Hanger;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class MotorStop extends Command{
+public class HangerSpin extends Command {
 
-	private final OurMotor motor;
+	
+	
+private final Hanger hanger;
 	
 	public static OI oi;
 	
 	
 	
-	public MotorStop() {
-	//	Super("")
-		motor = Robot.getOurMotor();
-		//requires(motor);
+	public HangerSpin() {
+		super("HangerSpin");
+		hanger = Robot.getHanger();
+		requires(hanger);
 		
 		
 	}
@@ -31,7 +33,7 @@ public class MotorStop extends Command{
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		motor.stopMotor();
+		hanger.spin();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -44,6 +46,8 @@ public class MotorStop extends Command{
 	@Override
 	protected void end() {
 		
+		hanger.stop();
+	
 	}
 
 	// Called when another command which requires one or more of the same
@@ -51,7 +55,17 @@ public class MotorStop extends Command{
 	@Override
 	protected void interrupted() {
 		
+		hanger.stop();
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
