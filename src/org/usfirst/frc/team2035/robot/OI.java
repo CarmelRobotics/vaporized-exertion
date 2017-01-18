@@ -58,7 +58,7 @@ public class OI {
 		shiftGear = RobotMap.SHIFT_GEAR;
 		shiftHighTest = RobotMap.SHIFT_HIGH_TEST;
 		shiftLowTest = RobotMap.SHIFT_LOW_TEST;
-		pistonPush = RobotMap.PISTON_PUSH;
+		pistonPush = RobotMap.PISTON_PUSH; 
 		//gearOut = RobotMap.GEAR_OUT;
 		/*
 	     * All button functions
