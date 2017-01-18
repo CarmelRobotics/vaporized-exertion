@@ -16,7 +16,7 @@ public class LowerElevator extends CommandBase {
 		super();
 		
 		lower = Robot.getNewElevator();
-		//requires(lower);
+		requires(lower);
 		
 	}
 	

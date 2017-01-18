@@ -16,7 +16,7 @@ public class LiftElevator extends CommandBase {
 		super();
 		
 		lift = Robot.getNewElevator();
-		//requires(lift);
+		requires(lift);
 		
 	}
 	
