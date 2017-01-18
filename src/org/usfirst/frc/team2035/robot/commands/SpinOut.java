@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class SpinOut extends Command {
 
-	// private BallSucker ballSucker = new BallSucker();
 	public static OI oi;
 	private final BallSucker bs;
 
@@ -29,20 +28,17 @@ public class SpinOut extends Command {
 
 	@Override
 	protected void end() {
-		// TODO Auto-generated method stub
 		bs.spinStop();
 	}
 
 	@Override
 	protected void initialize() {
 		oi = new OI();
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void interrupted() {
-		// TODO Auto-generated method stub
 		bs.spinStop();
 
 	}

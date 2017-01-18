@@ -6,8 +6,7 @@ import org.usfirst.frc.team2035.robot.subsystems.BallSucker;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class SpinIn extends Command{ 
-	
-	//private BallSucker ballSucker = new BallSucker();
+
 	public static OI oi;
 	private final BallSucker bs;
 	public SpinIn(){
@@ -23,14 +22,9 @@ public class SpinIn extends Command{
 		bs.spinIn();
 	}
 	
-	protected boolean isFinished()
-	{
-		return false;
-	}
 	
 	@Override
 	protected void end() {
-		// TODO Auto-generated method stub
 		bs.spinStop();
 	}
 
@@ -39,16 +33,16 @@ public class SpinIn extends Command{
 	@Override
 	protected void initialize() {
 		oi = new OI();
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	protected void interrupted() {
-		// TODO Auto-generated method stub
 		bs.spinStop();
 		
 	}
-
+	protected boolean isFinished() {
+		return false;
+	}
 	
 }
