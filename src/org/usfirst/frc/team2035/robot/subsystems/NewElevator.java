@@ -25,8 +25,8 @@ public class NewElevator extends SubsystemBase {
 		super("Elevator");
 		/*I am assuming two motors for the elevator. one for the front. One for the back.*/
 		stick = RobotMap.DRIVER_JOYSTICK_B;
-		speedControl = new Victor(RobotMap.LIFT_MOTOR_FRONT_PWM);
-		speedControl2 = new Victor(RobotMap.LIFT_MOTOR_BACK_PWM);
+		speedControl = new Victor(RobotMap.LIFT_MOTOR_LEFT_PWM);
+		speedControl2 = new Victor(RobotMap.LIFT_MOTOR_RIGHT_PWM);
 		
 		
 	}
@@ -39,6 +39,12 @@ public class NewElevator extends SubsystemBase {
 	public void liftElevator() {
 		speedControl.set(RobotMap.ELEVATOR_LIFT_UP);
 		speedControl2.set(RobotMap.ELEVATOR_LIFT_UP);
+	
+	}
+	
+	public void lowerElevator() {
+		speedControl.set(RobotMap.ELEVATOR_LIFT_DOWN);
+		speedControl2.set(RobotMap.ELEVATOR_LIFT_DOWN);
 	
 	}
 

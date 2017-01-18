@@ -11,6 +11,7 @@ import org.usfirst.frc.team2035.robot.commands.*;
 import org.usfirst.frc.team2035.robot.subsystems.*;
 import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2035.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -41,6 +42,7 @@ public class Robot extends IterativeRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		nlift = new NewElevator();
+		OI.initialize();
 	}
 
 	/**

@@ -52,6 +52,7 @@ public class OI {
 
 
 	public static Button lift;
+	public static Button lower;
 
 
 
@@ -59,8 +60,10 @@ public class OI {
 		{
 	
 			lift = RobotMap.LIFT;
+			lower = RobotMap.LOWER;
 			
 			lift.whileHeld(new LiftElevator());
+			lower.whileHeld(new LowerElevator());
 			
 		}
 
