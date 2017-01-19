@@ -16,7 +16,6 @@ public class FeedMotorIn extends Command{
 		super("Feed Motor in");
 		
 		FEEDING = Robot.getFeed();
-		FEEDING.feedStop();
 		requires(FEEDING);
 	}
 	protected void initialize()
