@@ -26,7 +26,7 @@ public class ArmUp extends Command{
 	protected void end() {
 		
 		bs.spinStop();
-		bs.solOff();
+		//bs.solOff();
 	}
 
 	

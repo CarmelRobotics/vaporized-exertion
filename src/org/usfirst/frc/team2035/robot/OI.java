@@ -41,7 +41,7 @@ public class OI {
 	private static Button spinStop;
 	private static Button armUp;
 	private static Button armDown;
-	public static final int firstPWM = 0;
+	//public static final int firstPWM = 0;
 	public static void initialize()
 	{
 

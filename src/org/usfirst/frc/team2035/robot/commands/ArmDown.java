@@ -31,7 +31,7 @@ public class ArmDown extends Command{
 	@Override
 	protected void end() {
 		bs.spinStop();
-		bs.solOff();
+		//bs.solOff();
 	}
 
 	

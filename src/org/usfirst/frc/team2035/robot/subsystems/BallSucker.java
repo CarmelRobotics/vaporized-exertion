@@ -24,7 +24,7 @@ public class BallSucker extends Subsystem{
 		super("Ball Sucker");
 		rod = new Victor(RobotMap.BALLSUCKER_MOTOR_PWM);
 		arm = new Victor(RobotMap.ARM_MOTOR_PWM);
-		sol = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.SOLENOID_ARM_UP, RobotMap.SOLENOID_ARM_DOWN);
+		//sol = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.SOLENOID_ARM_UP, RobotMap.SOLENOID_ARM_DOWN);
 	}
 	
 	public void spinIn() {
@@ -42,12 +42,12 @@ public class BallSucker extends Subsystem{
 	
 	public void armUp() {
 		arm.set(1.0); // Use if motor controls arm up
-		sol.set(DoubleSolenoid.Value.kForward); // Use if solenoids controls arm up
+		//sol.set(DoubleSolenoid.Value.kForward); // Use if solenoids controls arm up
 	}
 	
 	public void armDown() {
 		arm.set(-1.0); // Use if motor controls arm down
-		sol.set(DoubleSolenoid.Value.kReverse); // Use if solenoids controls arm down
+		//sol.set(DoubleSolenoid.Value.kReverse); // Use if solenoids controls arm down
 	}
 	
 	public void solOff() {
