@@ -24,7 +24,7 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	
-	private static BallSucker bs; //might have to be public
+	public static BallSucker bs; //might have to be public
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
