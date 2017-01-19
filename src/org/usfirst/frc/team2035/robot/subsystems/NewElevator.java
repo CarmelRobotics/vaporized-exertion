@@ -1,5 +1,5 @@
 package org.usfirst.frc.team2035.robot.subsystems;
-
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team2035.robot.subsystems.SubsystemBase;
@@ -17,16 +17,16 @@ public class NewElevator extends SubsystemBase {
 	// here. Call these from Commands.
 	
 	private Joystick stick;
-	private Victor speedControl;
-	private Victor speedControl2;
+	private VictorSP speedControl;
+	private VictorSP speedControl2;
 
 	public NewElevator()
 	{
 		super("Elevator");
 		/*I am assuming two motors for the elevator. one for the front. One for the back.*/
-		stick = RobotMap.DRIVER_JOYSTICK_B;
-		speedControl = new Victor(RobotMap.LIFT_MOTOR_LEFT_PWM);
-		speedControl2 = new Victor(RobotMap.LIFT_MOTOR_RIGHT_PWM);
+	
+		speedControl = new VictorSP(RobotMap.LIFT_MOTOR_LEFT_PWM);
+		speedControl2 = new VictorSP(RobotMap.LIFT_MOTOR_RIGHT_PWM);
 		
 		
 	}

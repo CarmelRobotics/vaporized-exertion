@@ -13,7 +13,7 @@ public class LiftElevator extends CommandBase {
 
 	public LiftElevator()
 	{
-		super();
+		super("Lift Elevator");
 		
 		lift = Robot.getNewElevator();
 		requires(lift);

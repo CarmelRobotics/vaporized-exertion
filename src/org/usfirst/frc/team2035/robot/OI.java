@@ -53,6 +53,7 @@ public class OI {
 
 	public static Button lift;
 	public static Button lower;
+	public static Button stop;
 
 
 
@@ -61,9 +62,11 @@ public class OI {
 	
 			lift = RobotMap.LIFT;
 			lower = RobotMap.LOWER;
+			stop = RobotMap.STOP;
 			
 			lift.whileHeld(new LiftElevator());
 			lower.whileHeld(new LowerElevator());
+			stop.whenPressed(new StopElevator());
 			
 		}
 

@@ -23,11 +23,12 @@ public class RobotMap {
 	public static final int LIFT_MOTOR_LEFT_PWM = 0;
 	public static final int LIFT_MOTOR_RIGHT_PWM = 1;
 	//Joysticks
-	public static final int JOYSTICK_B_USB_NUMBER = 0;
-	public static final Joystick DRIVER_JOYSTICK_B = new Joystick(JOYSTICK_B_USB_NUMBER);
+	public static final int JOYSTICK_A_USB_NUMBER = 0;
+	public static final Joystick DRIVER_JOYSTICK_A = new Joystick(JOYSTICK_A_USB_NUMBER);
 	//Joystick Buttons
-	public static final JoystickButton LIFT = new JoystickButton(DRIVER_JOYSTICK_B,0);
-	public static final JoystickButton LOWER = new JoystickButton(DRIVER_JOYSTICK_B,1);
+	public static final JoystickButton LIFT = new JoystickButton(DRIVER_JOYSTICK_A,0);
+	public static final JoystickButton LOWER = new JoystickButton(DRIVER_JOYSTICK_A,1);
+	public static final JoystickButton STOP = new JoystickButton(DRIVER_JOYSTICK_A,2);
 	//Speed
 	public static final double ELEVATOR_LIFT_UP = -1;
 	public static final double ELEVATOR_LIFT_DOWN = 1;
