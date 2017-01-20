@@ -7,16 +7,11 @@ public class MotorStop extends Command{
 	 
 	private OurMotor motor = new OurMotor();
 	
-	//public void motorStop()
-	//{
-	//	motor.stop();
-	//}
 	@Override
 	protected void execute() {
 		motor.stop();
 	}
-	protected boolean isFinished()
-	{
+	protected boolean isFinished() {
 		return false;
 	}
 }

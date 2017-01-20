@@ -29,10 +29,12 @@ public class BallSucker extends Subsystem{
 	
 	public void spinIn() {
 		rod.set(1.0);
+		System.out.println("spinning in");
 	}
 	
 	public void spinOut() {
 		rod.set(-1.0);
+		System.out.println("spinning out");
 	}
 	
 	public void spinStop() {

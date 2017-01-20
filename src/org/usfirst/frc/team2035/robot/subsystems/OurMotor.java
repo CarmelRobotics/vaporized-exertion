@@ -10,7 +10,7 @@ private Victor first;
 
 public OurMotor()
 {
-	first = new Victor(OI.firstPWM);
+	//first = new Victor(OI.firstPWM);
 }
  
 public void movingForward()
