@@ -22,7 +22,7 @@ public class SpinIn extends Command{
 		bs.spinIn();
 	}
 	
-	
+	 
 	@Override
 	protected void end() {
 		bs.spinStop();

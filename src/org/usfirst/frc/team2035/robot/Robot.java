@@ -29,7 +29,7 @@ public class Robot extends IterativeRobot {
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
-	 * This function is run when the robot is first started up and should be
+	 * This function is run when the robot is first started up and should be 
 	 * used for any initialization code.
 	 */
 	@Override

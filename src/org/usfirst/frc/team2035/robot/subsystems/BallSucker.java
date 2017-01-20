@@ -20,7 +20,7 @@ public class BallSucker extends Subsystem{
 	private Victor arm;
 	private DoubleSolenoid sol;
 	
-	public BallSucker() {
+	public BallSucker() { 
 		super("Ball Sucker");
 		rod = new Victor(RobotMap.BALLSUCKER_MOTOR_PWM);
 		arm = new Victor(RobotMap.ARM_MOTOR_PWM);
