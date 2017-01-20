@@ -29,7 +29,7 @@ public class RobotMap {
 	
 	public static final JoystickButton HANGERBUTTON_FORWARD = new JoystickButton(DRIVER_JOYSTICK_A,1);
 
-	
+	//commit
 	
 	public static final double HANGERMOTOR_FORWARD = 1.0;
 	public static final double HANGERMOTOR_STOP = 0.0;
