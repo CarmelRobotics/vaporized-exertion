@@ -40,6 +40,7 @@ public class Hanger extends Subsystem {
 		
 		hanger.set(RobotMap.HANGERMOTOR_STOP);
 		
+		
 	}
 	
 	
