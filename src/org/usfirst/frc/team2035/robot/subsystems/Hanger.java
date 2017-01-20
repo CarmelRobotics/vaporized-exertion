@@ -9,14 +9,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Hanger extends Subsystem {
 
 	
-	private  Servo hanger;
+	private  Victor hanger;
 	
 	
 	public Hanger() {
 		
 		
 		
-		hanger = new Servo(RobotMap.HANGERMOTER_PWN);
+		hanger = new Victor(RobotMap.HANGERMOTER_PWN);
 		
 	
 		
