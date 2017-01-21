@@ -14,7 +14,7 @@ public class FeederSystem extends Subsystem {
 	{
 		super("Feeder System");
 		FeederTop = new Victor(0);
-		FeederBottom = new Victor(0);
+		FeederBottom = new Victor(1);
 		//I created two new speed controller objects to attach to two motors.
 		//One of these speed controllers might be superfluous depending on the number of motors on the feeder.
 	}
