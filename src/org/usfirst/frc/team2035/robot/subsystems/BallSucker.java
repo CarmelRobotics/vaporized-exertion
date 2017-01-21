@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 public class BallSucker extends Subsystem{
 	/**
 	 * DISCLAIMER!!!!
-	 * Comment all non-solenoid lines if motor and vice versa for armUp and armDown. The spin methods are good as is.
+	 * We have commented out all solenoid lines. The spin methods are good as is.
 	 * Check in all the Arm classes.
 	 * 
 	 * ..unless it doesn't work. Then we're sorry. :(
@@ -24,7 +24,7 @@ public class BallSucker extends Subsystem{
 		super("Ball Sucker");
 		rod = new Victor(RobotMap.BALLSUCKER_MOTOR_PWM);
 		arm = new Victor(RobotMap.ARM_MOTOR_PWM);
-		//sol = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.SOLENOID_ARM_UP, RobotMap.SOLENOID_ARM_DOWN);
+		sol = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.SOLENOID_ARM_UP, RobotMap.SOLENOID_ARM_DOWN);
 	}
 	
 	public void spinIn() {
@@ -43,19 +43,20 @@ public class BallSucker extends Subsystem{
 	}
 	
 	public void armUp() {
-		arm.set(1.0); // Use if motor controls arm up
-		//sol.set(DoubleSolenoid.Value.kForward); // Use if solenoids controls arm up
+		//arm.set(1.0); // Use if motor controls arm up
+		sol.set(DoubleSolenoid.Value.kForward); // Use if solenoids controls arm up
+		System.out.println("arm going up");
 	}
 	
 	public void armDown() {
-		arm.set(-1.0); // Use if motor controls arm down
-		//sol.set(DoubleSolenoid.Value.kReverse); // Use if solenoids controls arm down
+		//arm.set(-1.0); // Use if motor controls arm down
+		sol.set(DoubleSolenoid.Value.kReverse); // Use if solenoids controls arm down
+		System.out.println("arm going down");
 	}
 	
 	public void solOff() {
 		sol.set(DoubleSolenoid.Value.kOff);
-		
-	
+		System.out.println("arm stopping");
 	}
 	
 	

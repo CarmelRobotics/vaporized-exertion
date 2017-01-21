@@ -13,7 +13,6 @@ public class ArmUp extends Command{
 	public ArmUp(){
 		super("Arm Go Up");
 		
-		
 		bs = Robot.getBallSucker();
 		requires(bs);
 	}
@@ -25,17 +24,14 @@ public class ArmUp extends Command{
 	@Override
 	protected void end() {
 		
-		bs.spinStop();
-		//bs.solOff();
+		//bs.spinStop();
+		bs.solOff();
 	}
 
-	
 
 	@Override
 	protected void initialize() {
 		oi = new OI();
-		
-		
 	}
 
 	@Override
