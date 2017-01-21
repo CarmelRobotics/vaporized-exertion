@@ -22,5 +22,7 @@ public class RobotMap {
 	public static final Joystick DRIVER_JOYSTICK_A = new Joystick(JOYSTICK_A_USB_NUMBER);
 	public static final JoystickButton FEED_IN = new JoystickButton(DRIVER_JOYSTICK_A, 0);
 	public static final JoystickButton FEED_OUT = new JoystickButton(DRIVER_JOYSTICK_A, 1);
+	// These are a joystick and two buttons to switch the feeder system from both directions.
+	// FEED_IN is forward and FEED_OUT is reverse.
 	
 }

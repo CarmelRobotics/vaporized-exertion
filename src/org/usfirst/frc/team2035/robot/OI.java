@@ -38,20 +38,16 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	private static Button FeedIn;
 	private static Button FeedOut;
-	private static Button FeedStopIn;
-	private static Button FeedStopOut;
+	//The first button would be used to suck the balls into the feeder while the other button spits them out
 	
 	public static void initialize()
 	{
 		FeedIn = RobotMap.FEED_IN;
 		FeedOut = RobotMap.FEED_OUT;
-		FeedStopIn = RobotMap.FEED_IN;
-		FeedStopOut = RobotMap.FEED_OUT;
-		
+		//These are two joystick buttons that I made in RobotMap
 		FeedIn.whileHeld(new FeedMotorIn());
 		FeedOut.whileHeld(new FeedMotorOut());
-		FeedStopIn.whenReleased(new FeedMotorStop());
-		FeedStopOut.whenReleased(new FeedMotorStopOut());
+		//When a certain feeder button is held, the entire
 	}
 	
 }
