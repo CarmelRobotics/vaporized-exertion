@@ -32,12 +32,14 @@ public class RobotMap {
 	public static final JoystickButton SPIN_IN = new JoystickButton(DRIVER_JOYSTICK_A, 1);
     public static final JoystickButton SPIN_OUT = new JoystickButton(DRIVER_JOYSTICK_A, 2);
     public static final JoystickButton SPIN_STOP = new JoystickButton(DRIVER_JOYSTICK_A, 3);
+    
     public static final JoystickButton ARM_UP = new JoystickButton(DRIVER_JOYSTICK_A, 4);
     public static final JoystickButton ARM_DOWN = new JoystickButton(DRIVER_JOYSTICK_A, 5);
+    public static final JoystickButton ARM_STOP = new JoystickButton(DRIVER_JOYSTICK_A, 6);
     
     //Solenoids
     public static final int PCM_ID = 0;
     
-    public static final int SOLENOID_ARM_UP = 1;
-    public static final int SOLENOID_ARM_DOWN = 2;
+    public static final int SOLENOID_ARM_UP = 6;
+    public static final int SOLENOID_ARM_DOWN = 7;
 }

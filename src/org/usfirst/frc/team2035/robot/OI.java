@@ -41,6 +41,7 @@ public class OI {
 	private static Button spinStop; 
 	private static Button armUp;
 	private static Button armDown;
+	private static Button armStop;
 	//public static final int firstPWM = 0;
 	public static void initialize()
 	{
@@ -50,6 +51,7 @@ public class OI {
 	spinStop  = RobotMap.SPIN_STOP;
 	armUp = RobotMap.ARM_UP;
 	armDown = RobotMap.ARM_DOWN;
+	armStop = RobotMap.ARM_STOP;
 	
 	spinIn.whenPressed(new SpinIn());
 	spinOut.whenPressed(new SpinOut());
@@ -57,6 +59,7 @@ public class OI {
 	
 	armUp.whileHeld(new ArmUp());
 	armDown.whileHeld(new ArmDown());
+	armStop.whenPressed(new ArmStop());
 	}
 	
 }

@@ -39,7 +39,7 @@ public class BallSucker extends Subsystem{
 	
 	public void spinStop() {
 		rod.set(0.0);
-		arm.set(0.0);
+		System.out.println("spinning stopping");
 	}
 	
 	public void armUp() {
@@ -54,7 +54,8 @@ public class BallSucker extends Subsystem{
 		System.out.println("arm going down");
 	}
 	
-	public void solOff() {
+	public void armStop() {
+		//arm.set(0.0); // Use if motor controls arm stopping
 		sol.set(DoubleSolenoid.Value.kOff);
 		System.out.println("arm stopping");
 	}

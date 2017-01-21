@@ -5,20 +5,27 @@ import org.usfirst.frc.team2035.robot.Robot;
 import org.usfirst.frc.team2035.robot.subsystems.BallSucker;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ArmUp extends Command{ 
-	
-	
-	public static OI oi;
+public class ArmStop extends Command{ 
+
 	private final BallSucker bs;
-	public ArmUp(){
-		super("Arm Go Up");
+	public static OI oi;
+	public ArmStop(){
+		super("Arm Stopping");
+		
 		
 		bs = Robot.getBallSucker();
 		requires(bs);
 	}
+	
+	
 	@Override
 	protected void execute() {
-		bs.armUp();
+		bs.armStop();
+		
+	}
+	protected boolean isFinished()
+	{
+		return false;
 	}
 	
 	@Override
@@ -31,19 +38,15 @@ public class ArmUp extends Command{
 	@Override
 	protected void initialize() {
 		oi = new OI();
+		
 	}
 
 	@Override
 	protected void interrupted() {
-		
 		bs.armStop();
 		bs.spinStop();
 		
 	}
-	
-	protected boolean isFinished() {
-		return false;
-	}
-	
+
 	
 }

@@ -30,8 +30,8 @@ public class ArmDown extends Command{
 	
 	@Override
 	protected void end() {
-		//bs.spinStop();
-		bs.solOff();
+		bs.spinStop();
+		bs.armStop();
 	}
 
 	
@@ -45,6 +45,7 @@ public class ArmDown extends Command{
 	@Override
 	protected void interrupted() {
 		bs.spinStop();
+		bs.armStop();
 		
 	}
 
