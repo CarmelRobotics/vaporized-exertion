@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 public class BallSucker extends Subsystem{
 	/**
 	 * DISCLAIMER!!!!
-	 * We have commented out all solenoid lines. The spin methods are good as is.
+	 * We have commented out all motor lines. The spin methods are good as is.
 	 * Check in all the Arm classes.
 	 * 
 	 * ..unless it doesn't work. Then we're sorry. :(
