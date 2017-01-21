@@ -33,7 +33,7 @@ public class ArmStop extends Command{
 		bs.spinStop();
 		bs.armStop();
 	}
-
+ 
 
 	@Override
 	protected void initialize() {

@@ -39,14 +39,14 @@ public class OI {
 	private static Button spinIn;
 	private static Button spinOut;
 	private static Button spinStop; 
-	private static Button armUp;
+	private static Button armUp; 
 	private static Button armDown;
 	private static Button armStop;
 	//public static final int firstPWM = 0;
 	public static void initialize()
 	{
 
-	spinIn = RobotMap.SPIN_IN;
+	spinIn = RobotMap.SPIN_IN; 
 	spinOut = RobotMap.SPIN_OUT;
 	spinStop  = RobotMap.SPIN_STOP;
 	armUp = RobotMap.ARM_UP;

@@ -22,7 +22,7 @@ public class ArmUp extends Command{
 	}
 	
 	@Override
-	protected void end() {
+	protected void end() { 
 		bs.spinStop();
 		bs.armStop();
 	}

@@ -36,7 +36,7 @@ public class BallSucker extends Subsystem{
 		rod.set(-1.0);
 		System.out.println("spinning out");
 	}
-	
+	 
 	public void spinStop() {
 		rod.set(0.0);
 		System.out.println("spinning stopping");

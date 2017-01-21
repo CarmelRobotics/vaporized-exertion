@@ -46,7 +46,7 @@ public class ArmDown extends Command{
 	protected void interrupted() {
 		bs.spinStop();
 		bs.armStop();
-		
+		 
 	}
 
 	
