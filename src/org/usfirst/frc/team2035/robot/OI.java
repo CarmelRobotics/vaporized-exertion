@@ -40,15 +40,20 @@ public class OI {
 	private static Button forwards;
 	private static Button backwards;
 	private static Button stop;
+	private static Button getDistance;
 	
 	public static void initialize() {
 		forwards = RobotMap.FORWARDS;
 		backwards = RobotMap.BACKWARDS;
 		stop = RobotMap.STOP;
+		getDistance = RobotMap.GET_DISTANCE;
 		
 		forwards.whileHeld(new MotorForward());
 		backwards.whileHeld(new MotorBackward());
 		stop.whileHeld(new MotorStop());
+		getDistance.whileHeld(new GetUltraValues());
+		
+	
 		
 		
 	}

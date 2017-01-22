@@ -20,12 +20,18 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
+	//Channel Values
 	public static final int PWM1 = 0;
+	public static final int ULTRASONIC_ANALOG = 1;
 	
+	//Joystick Buttons
 	public static final int JOYSTICK_NUM = 0;
 	public static final Joystick JOYSTICK = new Joystick(JOYSTICK_NUM);
-	public static final JoystickButton STOP = new JoystickButton(JOYSTICK, 1);
+	public static final JoystickButton STOP = new JoystickButton(JOYSTICK, 4);
 	public static final JoystickButton FORWARDS = new JoystickButton(JOYSTICK, 2);
 	public static final JoystickButton BACKWARDS = new JoystickButton(JOYSTICK, 3);
+	public static final JoystickButton GET_DISTANCE = new JoystickButton(JOYSTICK, 1);
+	
+	
 	
 }

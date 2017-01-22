@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import java.io.PrintWriter;
 
 import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2035.robot.subsystems.*;
@@ -22,6 +23,7 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OurMotor motor;
+	public static MaxbotixUltrasonic ultraSonic;
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -34,6 +36,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		motor = new OurMotor();
+		ultraSonic = new MaxbotixUltrasonic(RobotMap.ULTRASONIC_ANALOG);
 		OI.initialize();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -88,6 +91,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		PrintWriter writer = new PrintWriter("C:\\Users\\Robotics.CARMEL-UIRFG6MV\\ultrasonic_data.txt", "UTF-8");
+		
 	}
 
 	@Override
