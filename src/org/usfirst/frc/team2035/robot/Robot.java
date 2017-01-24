@@ -117,7 +117,10 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic() {
 		LiveWindow.run();
 	}
-	
+	/** 
+	 * Getter for BallSucker objects 
+	 * @return BallSucker 
+	 */
 	public static BallSucker getBallSucker(){
 		return bs;
 	}
