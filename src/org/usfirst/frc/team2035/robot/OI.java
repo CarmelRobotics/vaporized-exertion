@@ -48,8 +48,6 @@ public class OI {
 	private static Button shiftGear;
 	private static Button shiftHighTest;
 	private static Button shiftLowTest;
-	private static Button pistonPush;
-	private static Button gearOut;
 	public static void initialize()
 	{	
 		/*
@@ -58,7 +56,7 @@ public class OI {
 		shiftGear = RobotMap.SHIFT_GEAR;
 		shiftHighTest = RobotMap.SHIFT_HIGH_TEST;
 		shiftLowTest = RobotMap.SHIFT_LOW_TEST;
-		pistonPush = RobotMap.PISTON_PUSH; 
+		
 		//gearOut = RobotMap.GEAR_OUT;
 		/*
 	     * All button functions
@@ -68,7 +66,7 @@ public class OI {
 		shiftGear.whileHeld(new ShiftLowGear());
 		shiftHighTest.whileHeld(new ShiftHighGear());
 		shiftLowTest.whileHeld(new ShiftLowGear());
-		pistonPush.whileHeld(new GearPistonOut());
+		
 
 	}
 }

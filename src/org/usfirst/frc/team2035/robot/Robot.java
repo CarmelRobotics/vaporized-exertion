@@ -24,7 +24,6 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain driver;
-	public static GearSystem gear;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -39,7 +38,8 @@ public class Robot extends IterativeRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		driver = new DriveTrain();
-		gear = new GearSystem();
+		driver.shiftHighGear();
+		OI.initialize();
 	}
 
 	/**
@@ -119,8 +119,5 @@ public class Robot extends IterativeRobot {
 	}
     public static DriveTrain getDriveTrain() {
     	return driver;
-    }
-    public static GearSystem getGearSystem() {
-    	return gear;
     }
 }
