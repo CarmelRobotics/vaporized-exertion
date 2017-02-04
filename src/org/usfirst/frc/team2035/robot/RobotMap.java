@@ -21,17 +21,17 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 	
 	
+	
+	//Joystick Buttons
 	public static final int JOYSTICK_A_USB_NUMBER = 0;
-	
-	
 	
 	public static final Joystick DRIVER_JOYSTICK_A = new Joystick(JOYSTICK_A_USB_NUMBER);
 	
 	public static final JoystickButton HANGERBUTTON_FORWARD = new JoystickButton(DRIVER_JOYSTICK_A,1);
 
-	//commit
+	//Motors
 	
-	public static final double HANGERMOTOR_FORWARD = 1.0;
+	public static final double HANGERMOTOR_FORWARD = -1.0;
 	public static final double HANGERMOTOR_STOP = 0.0;
 	
 	public static final int HANGERMOTER_PWN = 0;

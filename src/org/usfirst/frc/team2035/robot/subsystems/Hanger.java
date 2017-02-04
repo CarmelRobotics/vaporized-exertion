@@ -24,7 +24,7 @@ public class Hanger extends Subsystem {
 	
 	
 	
-	
+	//Spin the motor backwards
 	public void spin() {
 		
 		
