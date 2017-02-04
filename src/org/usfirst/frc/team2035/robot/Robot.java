@@ -1,6 +1,9 @@
 
 package org.usfirst.frc.team2035.robot;
 
+
+
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -8,9 +11,11 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import java.io.PrintWriter;
-
+import java.io.File;
+import java.io.FileNotFoundException;
 import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2035.robot.subsystems.*;
+import org.usfirst.frc.team2035.robot.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,6 +30,8 @@ public class Robot extends IterativeRobot {
 	public static OurMotor motor;
 	public static MaxbotixUltrasonic ultraSonic;
 	public static OI oi;
+	public static GetUltraValues ultraValues = new GetUltraValues();
+	public static File file = new File("src/org/usfirst/frc/team2035/robot/ultrasonic_data.txt");
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -91,7 +98,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		PrintWriter writer = new PrintWriter("C:\\Users\\Robotics.CARMEL-UIRFG6MV\\ultrasonic_data.txt", "UTF-8");
+
+		
 		
 	}
 
@@ -111,6 +119,26 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+		PrintWriter printWriter = null;
+
+        try {
+            printWriter = new PrintWriter(file);
+            double distance = ultraValues.output();
+    		double time = DriverStation.getInstance().getMatchTime();
+    		String output = distance + " " + time;
+    		printWriter.write(output);
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("File not found");
+        }
+        finally {
+            if ( printWriter != null ) 
+            {
+                printWriter.close();
+            }
+        }
 	}
 
 	/**

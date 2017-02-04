@@ -2,6 +2,9 @@ package org.usfirst.frc.team2035.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.VictorSP;
+import com.ctre.CANTalon;
+import com.ctre.CANTalon.FeedbackDevice;
+
 import org.usfirst.frc.team2035.robot.RobotMap;
 
 /**
@@ -10,12 +13,15 @@ import org.usfirst.frc.team2035.robot.RobotMap;
 public class OurMotor extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
-	private VictorSP speedController;
+	private CANTalon speedController;
+	
+	
 	
 	public OurMotor() {
 		super("Arm");
 		
-		speedController = new VictorSP(RobotMap.PWM1);
+		speedController = new CANTalon(RobotMap.PWM1);
+		speedController.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Absolute);
 	}
 	
 	public void backwards() {

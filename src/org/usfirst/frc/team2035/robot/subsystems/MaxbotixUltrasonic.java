@@ -53,7 +53,7 @@ public class MaxbotixUltrasonic extends SensorBase {
      * @return -2.0 if the voltage is below the minimum voltage
      */
     public double getRangeInInches() {
-        double range;
+    	double range;
         //if we're not using units, return -1, a range that will most likely never be returned
         if (!useUnits) {
             return -1.0;
@@ -62,11 +62,25 @@ public class MaxbotixUltrasonic extends SensorBase {
         if (range < minVoltage) {
             return -2.0;
         }
-        //first, normalize the voltage
-        range = (range - minVoltage) / voltageRange;
-        //next, denormalize to the unit range
-        range = (range * distanceRange) + minDistance;
-        return range + 29;
+        double milliVolts = (channel.getVoltage())*1000;
+        double inches = (5*milliVolts)/(MV_PER_5MM*10*IN_TO_CM);
+        
+        return inches;
+    	
+//        double range;
+//        //if we're not using units, return -1, a range that will most likely never be returned
+//        if (!useUnits) {
+//            return -1.0;
+//        }
+//        range = channel.getVoltage();
+//        if (range < minVoltage) {
+//            return -2.0;
+//        }
+//        //first, normalize the voltage
+//        range = (range - minVoltage) / voltageRange;
+//        //next, denormalize to the unit range
+//        range = (range * distanceRange) + minDistance;
+//        return range + 29;
     }
     /* GetRangeInCM
      * Returns the range in centimeters

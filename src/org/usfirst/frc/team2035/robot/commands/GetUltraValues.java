@@ -37,6 +37,11 @@ public class GetUltraValues extends Command {
 		System.out.println("DISTANCE: " + distance);
 		System.out.println("-----------------------------------------------------------");
 	}
+	
+	public double output() {
+		double distance = ultraSonic.getRangeInCM();
+		return distance;
+	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
