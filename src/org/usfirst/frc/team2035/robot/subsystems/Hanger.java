@@ -35,7 +35,7 @@ public class Hanger extends Subsystem {
 	}
 	
 	
-	
+	//Stop Motor
 	public void stop () {
 		
 		hanger.set(RobotMap.HANGERMOTOR_STOP);
