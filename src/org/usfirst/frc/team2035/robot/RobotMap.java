@@ -34,7 +34,7 @@ public class RobotMap {
 	public static final double HANGERMOTOR_FORWARD = -1.0;
 	public static final double HANGERMOTOR_STOP = 0.0;
 	
-	public static final int HANGERMOTER_PWN = 0;
+	public static final int HANGERMOTER_PWN = 4;
 	
 	
 	
