@@ -54,8 +54,8 @@ public class OI {
 		 * Initializes buttons
 		 */
 		shiftGear = RobotMap.SHIFT_GEAR;
-		shiftHighTest = RobotMap.SHIFT_HIGH_TEST;
-		shiftLowTest = RobotMap.SHIFT_LOW_TEST;
+		//shiftHighTest = RobotMap.SHIFT_HIGH_TEST;
+		//shiftLowTest = RobotMap.SHIFT_LOW_TEST;
 		
 		//gearOut = RobotMap.GEAR_OUT;
 		/*
@@ -64,8 +64,8 @@ public class OI {
 			
 			
 		shiftGear.whileHeld(new ShiftLowGear());
-		shiftHighTest.whileHeld(new ShiftHighGear());
-		shiftLowTest.whileHeld(new ShiftLowGear());
+		//shiftHighTest.whileHeld(new ShiftHighGear());
+		//shiftLowTest.whileHeld(new ShiftLowGear());
 		
 
 	}

@@ -41,7 +41,7 @@ public class RobotMap {
     public static final int JOYSTICK_B_USB_NUMBER = 1;
     public static final Joystick DRIVER_JOYSTICK_B = new Joystick(JOYSTICK_B_USB_NUMBER);
   //Joystick buttons
-    public static final JoystickButton SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK_A, 3);
+    public static final JoystickButton SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK_A, 1);
     //public static final JoystickButton GEAR_OUT = new JoystickButton(DRIVER_JOYSTICK_B, 6);
     //public static final JoystickButton PISTON_PUSH = new JoystickButton(DRIVER_JOYSTICK_A, 4);
     public static final JoystickButton SHIFT_LOW_TEST = new JoystickButton(DRIVER_JOYSTICK_A, 8);
@@ -55,8 +55,8 @@ public class RobotMap {
 	public static final int GEAR_PCM_FORWARD = 6;
 	public static final int GEAR_PCM_REVERSE = 7;
 	
-	public static final int DRIVE_TRAIN_AIR_IN = 0; //Drive Train High Gear Solenoid set to Relay cartridge 1
-	public static final int DRIVE_TRAIN_AIR_OUT = 1; //Drive Train Low Gear Solenoid set to Relay cartridge 1
+	public static final int DRIVE_TRAIN_SHIFT_RIGHT = 0; //Drive Train High Gear Solenoid set to Relay cartridge 1
+	public static final int DRIVE_TRAIN_SHIFT_LEFT = 1; //Drive Train Low Gear Solenoid set to Relay cartridge 1
 }
 
 

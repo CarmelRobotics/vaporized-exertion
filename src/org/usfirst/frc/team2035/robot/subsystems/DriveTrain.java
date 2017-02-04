@@ -14,8 +14,8 @@ import edu.wpi.first.wpilibj.Victor;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-
+//import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import org.usfirst.frc.team2035.robot.RobotMap;
 import org.usfirst.frc.team2035.robot.commands.*;
 //import org.usfirst.frc.team2035.robot.subsystems.*;
@@ -29,9 +29,9 @@ public class DriveTrain extends Subsystem {
 	private SpeedController motorBackLeft;
 	private SpeedController motorFrontRight;
 	private SpeedController motorBackRight;
-	// private Solenoid GearShiftSolUp;
-	// private Solenoid GearShiftSolDown;
-	private DoubleSolenoid gearShifter;
+	private Solenoid GearShiftRight;
+	private Solenoid GearShiftLeft;
+	//private DoubleSolenoid gearShifter;
 
 	private RobotDrive drive;
 
@@ -45,9 +45,9 @@ public DriveTrain() {
     motorBackRight = new Victor(RobotMap.B_RIGHT_MOTOR_PWM);
     stick = new Joystick(RobotMap.JOYSTICK_A_USB_NUMBER);	// initialize the joystick on USB 0
     drive = new RobotDrive(motorFrontLeft,motorBackLeft,motorFrontRight,motorBackRight);
-    //GearShiftSolUp = new Solenoid(RobotMap.DRIVE_TRAIN_HIGH_GEAR);
-    //GearShiftSolDown = new Solenoid(RobotMap.DRIVE_TRAIN_LOW_GEAR);
-    gearShifter = new DoubleSolenoid(RobotMap.PCM_ID_DRIVER, RobotMap.DRIVE_TRAIN_AIR_IN, RobotMap.DRIVE_TRAIN_AIR_OUT);
+    GearShiftRight = new Solenoid(RobotMap.DRIVE_TRAIN_SHIFT_RIGHT);
+    GearShiftLeft = new Solenoid(RobotMap.DRIVE_TRAIN_SHIFT_LEFT);
+    //gearShifter = new DoubleSolenoid(RobotMap.PCM_ID_DRIVER, RobotMap.DRIVE_TRAIN_AIR_IN, RobotMap.DRIVE_TRAIN_AIR_OUT);
 }
 //
 public void init()
@@ -73,23 +73,19 @@ public void drive(double speed) {
 
 public void shiftLowGear()
 {
-	//GearShiftSolUp.set(!RobotMap.LOW_GEAR_SOLENOID_VALUE);
-	//GearShiftSolDown.set(RobotMap.LOW_GEAR_SOLENOID_VALUE);
-	//GearShiftSolUp.set(false);
-	//GearShiftSolDown.set(true);
+	GearShiftRight.set(true);
+	GearShiftLeft.set(true);
 	System.out.println("Gotta Go LOW");
-	gearShifter.set(DoubleSolenoid.Value.kReverse);
+	//gearShifter.set(DoubleSolenoid.Value.kReverse);
 }
 
 public void shiftHighGear()
 {
 	
-	//GearShiftSolUp.set(!RobotMap.LOW_GEAR_SOLENOID_VALUE);
-	//GearShiftSolDown.set(RobotMap.LOW_GEAR_SOLENOID_VALUE);
-	//GearShiftSolUp.set(true);
-	//GearShiftSolDown.set(false);
+	GearShiftRight.set(false);
+	GearShiftLeft.set(false);
 	System.out.println("Gotta Go HIGH");
-	gearShifter.set(DoubleSolenoid.Value.kForward);
+	//gearShifter.set(DoubleSolenoid.Value.kForward);
 }
 
 
