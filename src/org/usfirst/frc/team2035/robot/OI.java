@@ -1,3 +1,4 @@
+
 package org.usfirst.frc.team2035.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -7,10 +8,10 @@ import org.usfirst.frc.team2035.robot.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
+import org.usfirst.frc.team2035.robot.commands.HangerSpin;
 
 import org.usfirst.frc.team2035.robot.subsystems.*;
 import org.usfirst.frc.team2035.robot.commands.*;
-
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -45,29 +46,30 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
+	
+	public static final int OUR_MOTOR_PWM = 0;
+	
+	public static Button hangerSpin;
 	private static Button shiftGear;
 	private static Button shiftHighTest;
 	private static Button shiftLowTest;
-	public static void initialize()
-	{	
-		/*
-		 * Initializes buttons
-		 */
-		shiftGear = RobotMap.SHIFT_GEAR;
-		//shiftHighTest = RobotMap.SHIFT_HIGH_TEST;
-		//shiftLowTest = RobotMap.SHIFT_LOW_TEST;
-		
-		//gearOut = RobotMap.GEAR_OUT;
-		/*
-	     * All button functions
-		 */
-			
-			
-		shiftGear.whileHeld(new ShiftLowGear());
-		//shiftHighTest.whileHeld(new ShiftHighGear());
-		//shiftLowTest.whileHeld(new ShiftLowGear());
-		
+	
+	
+	//init the oi's
+	
+	
+	public static void initialize() {
+	
+	
+	
+	hangerSpin = RobotMap.HANGERBUTTON_FORWARD;
+	shiftGear = RobotMap.SHIFT_GEAR;
+	hangerSpin.whileHeld(new HangerSpin());
+	shiftGear.whileHeld(new ShiftLowGear());
+	
 
+	
+	
 	}
+	
 }
-

@@ -26,6 +26,13 @@ public class RobotMap {
 	public static final Joystick DRIVER_JOYSTICK = new Joystick(STICK);
 	public static final JoystickButton MOVE_MOTOR_BACKWARD = new JoystickButton(DRIVER_JOYSTICK, BUTTON_1); 
 	public static final JoystickButton MOVE_MOTOR_FORWARD = new JoystickButton(DRIVER_JOYSTICK, BUTTON_2);
+
+	
+	public static final double HANGERMOTOR_FORWARD = -1.0;
+	public static final double HANGERMOTOR_STOP = 0.0;
+	
+	
+	
 	/*
 	 * Motor PWMs
 	 */
@@ -33,6 +40,7 @@ public class RobotMap {
     public static final int B_LEFT_MOTOR_PWM = 3; // Rear Left drive motor is wired to PWM out [3]/1
     public static final int F_RIGHT_MOTOR_PWM = 0; // Front Right drive motor is wired to PWM out [0]/2
     public static final int B_RIGHT_MOTOR_PWM = 1; // Rear Right drive motor is wired to PWM out [1]/3 
+    public static final int HANGERMOTER_PWN = 4;
     /*
      * Joysticks
      */
@@ -46,6 +54,7 @@ public class RobotMap {
     //public static final JoystickButton PISTON_PUSH = new JoystickButton(DRIVER_JOYSTICK_A, 4);
     public static final JoystickButton SHIFT_LOW_TEST = new JoystickButton(DRIVER_JOYSTICK_A, 8);
 	public static final JoystickButton SHIFT_HIGH_TEST = new JoystickButton(DRIVER_JOYSTICK_A, 9);
+	public static final JoystickButton HANGERBUTTON_FORWARD = new JoystickButton(DRIVER_JOYSTICK_A,1);
     
 	/*
 	 * Solenoids
@@ -58,5 +67,4 @@ public class RobotMap {
 	public static final int DRIVE_TRAIN_SHIFT_RIGHT = 0; //Drive Train High Gear Solenoid set to Relay cartridge 1
 	public static final int DRIVE_TRAIN_SHIFT_LEFT = 1; //Drive Train Low Gear Solenoid set to Relay cartridge 1
 }
-
 
