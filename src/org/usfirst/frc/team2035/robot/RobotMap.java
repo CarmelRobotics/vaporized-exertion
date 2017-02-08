@@ -20,8 +20,8 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 	
 	// Motor PWMs
-	public static final int LIFT_MOTOR_LEFT_PWM = 0;
-	public static final int LIFT_MOTOR_RIGHT_PWM = 1;
+	public static final int LIFT_MOTOR_PWM = 6;
+	
 	//Joysticks
 	public static final int JOYSTICK_A_USB_NUMBER = 0;
 	public static final Joystick DRIVER_JOYSTICK_A = new Joystick(JOYSTICK_A_USB_NUMBER);

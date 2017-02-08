@@ -18,15 +18,15 @@ public class NewElevator extends SubsystemBase {
 	
 	private Joystick stick;
 	private VictorSP speedControl;
-	private VictorSP speedControl2;
+
 
 	public NewElevator()
 	{
 		super("Elevator");
 		/*I am assuming two motors for the elevator. one for the front. One for the back.*/
 	
-		speedControl = new VictorSP(RobotMap.LIFT_MOTOR_LEFT_PWM);
-		speedControl2 = new VictorSP(RobotMap.LIFT_MOTOR_RIGHT_PWM);
+		speedControl = new VictorSP(RobotMap.LIFT_MOTOR_PWM);
+		
 		
 		
 	}
@@ -38,13 +38,13 @@ public class NewElevator extends SubsystemBase {
 	
 	public void liftElevator() {
 		speedControl.set(RobotMap.ELEVATOR_LIFT_UP);
-		speedControl2.set(RobotMap.ELEVATOR_LIFT_UP);
+		
 	
 	}
 	
 	public void lowerElevator() {
 		speedControl.set(RobotMap.ELEVATOR_LIFT_DOWN);
-		speedControl2.set(RobotMap.ELEVATOR_LIFT_DOWN);
+		
 	
 	}
 
@@ -65,7 +65,7 @@ public class NewElevator extends SubsystemBase {
 	public void stopElevator() {
 		// TODO Auto-generated method stub
 		speedControl.set(RobotMap.ELEVATOR_LIFT_STOP);
-		speedControl2.set(RobotMap.ELEVATOR_LIFT_STOP);
+		
 	}
 
 }
