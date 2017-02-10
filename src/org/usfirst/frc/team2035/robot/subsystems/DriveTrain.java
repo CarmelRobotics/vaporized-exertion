@@ -45,8 +45,8 @@ public DriveTrain() {
     motorBackRight = new Victor(RobotMap.B_RIGHT_MOTOR_PWM);
     stick = new Joystick(RobotMap.JOYSTICK_A_USB_NUMBER);	// initialize the joystick on USB 0
     drive = new RobotDrive(motorFrontLeft,motorBackLeft,motorFrontRight,motorBackRight);
-    GearShiftRight = new Solenoid(RobotMap.DRIVE_TRAIN_SHIFT_RIGHT);
-    GearShiftLeft = new Solenoid(RobotMap.DRIVE_TRAIN_SHIFT_LEFT);
+    //GearShiftRight = new Solenoid(RobotMap.DRIVE_TRAIN_SHIFT_RIGHT);
+    //GearShiftLeft = new Solenoid(RobotMap.DRIVE_TRAIN_SHIFT_LEFT);
     //gearShifter = new DoubleSolenoid(RobotMap.PCM_ID_DRIVER, RobotMap.DRIVE_TRAIN_AIR_IN, RobotMap.DRIVE_TRAIN_AIR_OUT);
 }
 //
