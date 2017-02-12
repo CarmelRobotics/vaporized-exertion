@@ -4,7 +4,7 @@
 /*----------------------------------------------------------------------------*/
 package org.usfirst.frc.team2035.robot.commands;
 
-import org.usfirst.frc.team2035.robot.subsystems.GearSystem;
+import org.usfirst.frc.team2035.robot.subsystems.GrabberSystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -15,17 +15,16 @@ import org.usfirst.frc.team2035.robot.Robot;
  *
  * @author Team 2035
  */
-public class RaiseGear extends Command {
+public class LowerGrabber extends Command {
 
 
-    private final GearSystem gear;
+    private final GrabberSystem grabber;
     public static OI oi;
 
-    public RaiseGear() {
-    	super("RaiseGear");
-    	gear = Robot.getGearSystem();
-    	requires(gear);
-    
+    public LowerGrabber() {
+    	super("LowerGrabber");
+    	grabber = Robot.getGrabberSystem();
+    	requires(grabber);
     }
     
     protected void initialize() {
@@ -33,18 +32,18 @@ public class RaiseGear extends Command {
     }
     
     protected void execute() {
-    	gear.raiseGear();
+    	grabber.lowerGrabber();
     }
     
     protected boolean isFinished() {
-    	return true;
+    	return false;
     }
     protected void end() {
-    	gear.gearStop();
+    	grabber.grabberStop();
     }
     
     protected void interrupted() {
-    	gear.gearStop();
+    	grabber.grabberStop();
     }
 
 }

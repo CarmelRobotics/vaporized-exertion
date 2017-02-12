@@ -48,9 +48,10 @@ public class OI {
 	private static Button shiftGear;
 	private static Button shiftHighTest;
 	private static Button shiftLowTest;
-	private static Button gearHold;
-	private static Button gearLow;
-	private static Button gearRaise;
+	private static Button grabberHold;
+	private static Button grabberRelease;
+	private static Button grabberLower;
+	private static Button grabberRaise;
 	
 	public static void initialize()
 	{	
@@ -58,9 +59,10 @@ public class OI {
 		 * Initializes buttons
 		 */
 		shiftGear = RobotMap.SHIFT_GEAR;
-	    gearHold = RobotMap.GEAR_HOLD;
-		gearLow = RobotMap.GEAR_LOW;
-		gearRaise = RobotMap.GEAR_RAISE;
+	    grabberHold = RobotMap.GRABBER_HOLD;
+	    grabberRelease = RobotMap.GRABBER_RELEASE;
+		grabberLower = RobotMap.GRABBER_LOWER;
+		grabberRaise = RobotMap.GRABBER_RAISE;
 		//shiftHighTest = RobotMap.SHIFT_HIGH_TEST;
 		//shiftLowTest = RobotMap.SHIFT_LOW_TEST;
 		
@@ -69,9 +71,9 @@ public class OI {
 	     * All button functions
 		 */
 			
-		gearHold.whileHeld(new GentlyHold());
-		gearLow.whileHeld(new LowerGear());
-		gearRaise.whileHeld(new RaiseGear());
+		grabberHold.whileHeld(new GrabberHold());
+		grabberLower.whileHeld(new LowerGrabber());
+		grabberRaise.whileHeld(new RaiseGrabber());
 		shiftGear.whileHeld(new ShiftLowGear());
 		//shiftHighTest.whileHeld(new ShiftHighGear());
 		//shiftLowTest.whileHeld(new ShiftLowGear());
