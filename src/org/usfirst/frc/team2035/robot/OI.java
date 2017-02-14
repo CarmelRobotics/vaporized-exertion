@@ -1,17 +1,13 @@
 package org.usfirst.frc.team2035.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
-
 import org.usfirst.frc.team2035.robot.RobotMap;
 
-import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
-
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
 import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
-
+import org.usfirst.frc.team2035.robot.commands.HangerSpin;
 
 import org.usfirst.frc.team2035.robot.subsystems.*;
 import org.usfirst.frc.team2035.robot.commands.*;
@@ -48,46 +44,41 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
-
-
-
+	
+	
+	public static final int OUR_MOTOR_PWM = 0;
+	
+	public static Button hangerSpin;
+	private static Button shiftGear;
+	private static Button shiftHighTest;
+	private static Button shiftLowTest;
 	public static Button lift;
 	public static Button lower;
 	public static Button stop;
-
-
-
-		public static void initialize()
-		{
 	
-			lift = RobotMap.LIFT;
-			lower = RobotMap.LOWER;
-			stop = RobotMap.STOP;
-			
-			lift.whileHeld(new LiftElevator());
-			lower.whileHeld(new LowerElevator());
-			stop.whenPressed(new StopElevator());
-			
-		}
+	
+	//init the oi's
+	
+	
+	public static void initialize() {
+	
+	
+	
+	hangerSpin = RobotMap.HANGERBUTTON_FORWARD;
+	shiftGear = RobotMap.SHIFT_GEAR;
+	lift = RobotMap.LIFT;
+	lower = RobotMap.LOWER;
+	stop = RobotMap.STOP;
+	
+	hangerSpin.whileHeld(new HangerSpin());
+	shiftGear.whileHeld(new ShiftLowGear());
+	lift.whileHeld(new LiftElevator());
+	lower.whileHeld(new LowerElevator());
+	stop.whenPressed(new StopElevator());
+	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	}
+	
 }
