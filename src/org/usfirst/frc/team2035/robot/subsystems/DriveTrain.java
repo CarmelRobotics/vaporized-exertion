@@ -21,8 +21,6 @@ import org.usfirst.frc.team2035.robot.commands.*;
 //import org.usfirst.frc.team2035.robot.subsystems.*;
 
 public class DriveTrain extends Subsystem {
-
-
 	
 	private static Joystick stick;
 	private SpeedController motorFrontLeft;

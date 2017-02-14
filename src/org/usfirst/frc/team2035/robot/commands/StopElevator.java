@@ -6,7 +6,9 @@ import org.usfirst.frc.team2035.robot.OI;
 
 import org.usfirst.frc.team2035.robot.subsystems.NewElevator;
 
-public class StopElevator extends CommandBase {
+import edu.wpi.first.wpilibj.command.Command;
+
+public class StopElevator extends Command {
 	
 	private final NewElevator stop;
 	public static OI oi;
