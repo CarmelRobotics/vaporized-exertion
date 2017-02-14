@@ -2,7 +2,7 @@ package org.usfirst.frc.team2035.robot.subsystems;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import org.usfirst.frc.team2035.robot.subsystems.SubsystemBase;
+
 import org.usfirst.frc.team2035.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Joystick; 
@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.Victor;
 /**
  *
  */
-public class NewElevator extends SubsystemBase {
+public class NewElevator extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 	
@@ -31,11 +31,6 @@ public class NewElevator extends SubsystemBase {
 		
 	}
 	
-	public void init()
-	{
-		
-	}
-	
 	public void liftElevator() {
 		speedControl.set(RobotMap.ELEVATOR_LIFT_UP);
 		
@@ -49,12 +44,6 @@ public class NewElevator extends SubsystemBase {
 	}
 
 	
-
-	@Override
-	public void end() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	protected void initDefaultCommand() {
