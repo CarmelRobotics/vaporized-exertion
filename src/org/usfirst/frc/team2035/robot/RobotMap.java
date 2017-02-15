@@ -22,6 +22,7 @@ public class RobotMap {
 	
 	//Channel Values
 	public static final int PWM1 = 0;
+	public static final int TURRET_ID = 0;
 	public static final int ULTRASONIC_ANALOG = 1;
 	
 	//Joystick Buttons
@@ -31,6 +32,19 @@ public class RobotMap {
 	public static final JoystickButton FORWARDS = new JoystickButton(JOYSTICK, 2);
 	public static final JoystickButton BACKWARDS = new JoystickButton(JOYSTICK, 3);
 	public static final JoystickButton GET_DISTANCE = new JoystickButton(JOYSTICK, 1);
+	
+	public static final JoystickButton TALON_FORWARD = new JoystickButton(JOYSTICK, 6);
+	public static final JoystickButton TALON_BACKWARDS = new JoystickButton(JOYSTICK, 7);
+	public static final JoystickButton TALON_STOP = new JoystickButton(JOYSTICK, 8);
+	public static final JoystickButton TARGET_TURRET = new JoystickButton(JOYSTICK, 9);
+	public static final JoystickButton GET_COUNT = new JoystickButton(JOYSTICK, 10);
+	
+	
+	
+	public static final int TURRET_RATIO = 15; //15 motor turns for 180 degrees
+	public static final int ENCODER_STEPS = 4096; //Steps per rotation of shaft
+	public static final int STEPS_90_DEG = (int)(7.5*4096);
+	
 	
 	
 	

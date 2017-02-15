@@ -41,17 +41,32 @@ public class OI {
 	private static Button backwards;
 	private static Button stop;
 	private static Button getDistance;
+	private static Button turretForward;
+	private static Button turretBackwards;
+	private static Button turretStop;
+	private static Button targetTurret;
+	private static Button getCount;
 	
 	public static void initialize() {
 		forwards = RobotMap.FORWARDS;
 		backwards = RobotMap.BACKWARDS;
 		stop = RobotMap.STOP;
 		getDistance = RobotMap.GET_DISTANCE;
+		turretForward = RobotMap.TALON_FORWARD;
+		turretBackwards = RobotMap.TALON_BACKWARDS;
+		turretStop = RobotMap.TALON_STOP;
+		targetTurret = RobotMap.TARGET_TURRET;
+		getCount = RobotMap.GET_COUNT;
 		
 		forwards.whileHeld(new MotorForward());
 		backwards.whileHeld(new MotorBackward());
 		stop.whileHeld(new MotorStop());
 		getDistance.whileHeld(new GetUltraValues());
+		turretForward.whileHeld(new MoveTurret());
+		turretBackwards.whileHeld(new MoveTurretNegative());
+		turretStop.whileHeld(new MoveTurretStop());
+		targetTurret.whenPressed(new TargetTurret());
+		getCount.whileHeld(new GetNetworkTableValue());
 		
 	
 		

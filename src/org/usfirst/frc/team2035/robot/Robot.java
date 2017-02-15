@@ -29,6 +29,7 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OurMotor motor;
 	public static MaxbotixUltrasonic ultraSonic;
+	public static Shooter shooter;
 	public static OI oi;
 	public static GetUltraValues ultraValues = new GetUltraValues();
 	public static File file = new File("src/org/usfirst/frc/team2035/robot/ultrasonic_data.txt");
@@ -44,6 +45,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		motor = new OurMotor();
 		ultraSonic = new MaxbotixUltrasonic(RobotMap.ULTRASONIC_ANALOG);
+		shooter = new Shooter();
 		OI.initialize();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -111,6 +113,7 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		
 	}
 
 	/**
@@ -120,25 +123,27 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		
-		PrintWriter printWriter = null;
-
-        try {
-            printWriter = new PrintWriter(file);
-            double distance = ultraValues.output();
-    		double time = DriverStation.getInstance().getMatchTime();
-    		String output = distance + " " + time;
-    		printWriter.write(output);
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("File not found");
-        }
-        finally {
-            if ( printWriter != null ) 
-            {
-                printWriter.close();
-            }
-        }
+//		PrintWriter printWriter = null;
+//
+//        try {
+//            printWriter = new PrintWriter(file);
+//            double distance = ultraValues.output();
+//    		double time = DriverStation.getInstance().getMatchTime();
+//    		String output = distance + " " + time;
+//    		printWriter.write(output);
+//        }
+//        catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//            System.out.println("File not found");
+//        }
+//        finally {
+//            if ( printWriter != null ) 
+//            {
+//                printWriter.close();
+//            }
+//        }
+        System.out.println("Encoder Position: " + shooter.getEncPosition());
+        
 	}
 
 	/**
@@ -151,5 +156,9 @@ public class Robot extends IterativeRobot {
 	
 	public static OurMotor getMotor() {
 		return motor;
+	}
+	
+	public static Shooter getShooter() {
+		return shooter;
 	}
 }
