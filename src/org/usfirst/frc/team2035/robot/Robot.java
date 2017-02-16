@@ -25,6 +25,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DriveTrain driver;
 	private static GrabberSystem grabberSystem; 
+	CameraServer server;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -42,7 +43,11 @@ public class Robot extends IterativeRobot {
 		grabberSystem = new GrabberSystem();
 		driver.shiftHighGear();
 		OI.initialize();
-		CameraServer.getInstance().startAutomaticCapture();
+		server = CameraServer.getInstance();
+		//server.setQuality(50);
+		server.startAutomaticCapture();
+		
+		
 	}
 
 	/**
