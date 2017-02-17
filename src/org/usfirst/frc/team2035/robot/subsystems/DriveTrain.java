@@ -60,7 +60,7 @@ protected void initDefaultCommand()
 }
 
 public void arcadeDrive() {
-    drive.arcadeDrive(stick.getY(), -(stick.getX()));
+    drive.arcadeDrive(stick.getY(), (stick.getX()));
 }
 
 
