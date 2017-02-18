@@ -24,6 +24,7 @@ public class Robot extends IterativeRobot {
 	public static Hanger hanger;
 	public static NewElevator nlift;
 	public static BallSucker bs;
+	public static ACompressor compressor;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -34,9 +35,11 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
+		
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		compressor = new ACompressor();
 		driver = new DriveTrain();
 		hanger = new Hanger();
 		nlift = new NewElevator();
@@ -103,6 +106,7 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		compressor.start();
 	}
 
 	/**

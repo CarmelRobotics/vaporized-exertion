@@ -53,17 +53,15 @@ public class RobotMap {
     /* Joystick buttons */
     public static final JoystickButton SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK_A, 1);
     //public static final JoystickButton GEAR_OUT = new JoystickButton(DRIVER_JOYSTICK_B, 6);
-    public static final JoystickButton PISTON_PUSH = new JoystickButton(DRIVER_JOYSTICK_A, 4);
+    //public static final JoystickButton PISTON_PUSH = new JoystickButton(DRIVER_JOYSTICK_A, 4);
     //public static final JoystickButton SHIFT_LOW_TEST = new JoystickButton(DRIVER_JOYSTICK_A, 8);
 	//public static final JoystickButton SHIFT_HIGH_TEST = new JoystickButton(DRIVER_JOYSTICK_A, 9);
 	public static final JoystickButton HANGERBUTTON_FORWARD = new JoystickButton(DRIVER_JOYSTICK_A,10);
-	public static final JoystickButton LIFT = new JoystickButton(DRIVER_JOYSTICK_A,2 );
-	public static final JoystickButton LOWER = new JoystickButton(DRIVER_JOYSTICK_A,3);
-	public static final JoystickButton STOP = new JoystickButton(DRIVER_JOYSTICK_A,6);
-	public static final JoystickButton SPIN_IN = new JoystickButton(DRIVER_JOYSTICK_A, 2);
-    public static final JoystickButton SPIN_OUT = new JoystickButton(DRIVER_JOYSTICK_A, 3);
-    public static final JoystickButton ARM_UP = new JoystickButton(DRIVER_JOYSTICK_A, 4);
-   // public static final JoystickButton ARM_UP = new JoystickButton(DRIVER_JOYSTICK_A, 7);
+	public static final JoystickButton BALL_OUT = new JoystickButton(DRIVER_JOYSTICK_A,2);
+	public static final JoystickButton BALL_IN = new JoystickButton(DRIVER_JOYSTICK_A,3);
+	//public static final JoystickButton STOP = new JoystickButton(DRIVER_JOYSTICK_A,6);
+    public static final JoystickButton ARM_UP = new JoystickButton(DRIVER_JOYSTICK_A, 6);
+    public static final JoystickButton ARM_DOWN = new JoystickButton(DRIVER_JOYSTICK_A, 7);
     
 	/* MOTOR SPEEDS */
 	public static final double ELEVATOR_LIFT_UP = 1;
@@ -78,8 +76,6 @@ public class RobotMap {
 	public static final int PCM_ID_DRIVER = 0;
 	public static final int PCM_ID_GEAR = 1;
 	public static final int PCM_ID = 0;
-	public static final int GEAR_PCM_FORWARD = 6;
-	public static final int GEAR_PCM_REVERSE = 7;
 	public static final int SOLENOID_ARM_UP = 6;
     public static final int SOLENOID_ARM_DOWN = 7;
 	

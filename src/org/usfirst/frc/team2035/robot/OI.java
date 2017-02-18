@@ -52,14 +52,10 @@ public class OI {
 	private static Button shiftGear;
 	private static Button shiftHighTest;
 	private static Button shiftLowTest;
-	public static Button lift;
-	public static Button lower;
-	public static Button stop;
-	private static Button spinIn;
-	private static Button spinOut;
-	private static Button spinStop; 
+	public static Button ballIn;
+	public static Button ballOut;
 	private static Button armUp; 
-	//private static Button armDown;
+	private static Button armDown;
 	//private static Button armStop;
 	
 	//init the oi's
@@ -71,28 +67,21 @@ public class OI {
 	
 	hangerSpin = RobotMap.HANGERBUTTON_FORWARD;
 	shiftGear = RobotMap.SHIFT_GEAR;
-	lift = RobotMap.LIFT;
-	lower = RobotMap.LOWER;
-	stop = RobotMap.STOP;
-	spinIn = RobotMap.SPIN_IN; 
-	spinOut = RobotMap.SPIN_OUT;
+	ballIn = RobotMap.BALL_IN;
+	ballOut = RobotMap.BALL_OUT;
 	//spinStop  = RobotMap.SPIN_STOP;
 	armUp = RobotMap.ARM_UP;
-	//armDown = RobotMap.ARM_DOWN;
+	armDown = RobotMap.ARM_DOWN;
 	//armStop = RobotMap.ARM_STOP;
 	
 	hangerSpin.whileHeld(new HangerSpin());
 	shiftGear.whileHeld(new ShiftLowGear());
-	lift.whileHeld(new LiftElevator());
-	lower.whileHeld(new LowerElevator());
-	stop.whenPressed(new StopElevator());
-	
-	spinIn.whileHeld(new SpinIn());
-	spinOut.whileHeld(new SpinOut());
+	ballIn.whileHeld(new BallIntake());
+	ballOut.whileHeld(new BallOutake());
 	//spinStop.whenPressed(new SpinStop());
 	
 	armUp.whileHeld(new ArmUp());
-	//armDown.whileHeld(new ArmDown());
+	armDown.whileHeld(new ArmDown());
 	//armStop.whenPressed(new ArmStop());
 	
 	

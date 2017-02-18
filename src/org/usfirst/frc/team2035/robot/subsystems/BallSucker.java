@@ -24,7 +24,7 @@ public class BallSucker extends Subsystem{
 		super("Ball Sucker");
 		rod = new Victor(RobotMap.BALLSUCKER_MOTOR_PWM);
 		//arm = new Victor(RobotMap.ARM_MOTOR_PWM);
-		sol = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.SOLENOID_ARM_UP, RobotMap.SOLENOID_ARM_DOWN);
+		sol = new DoubleSolenoid( RobotMap.SOLENOID_ARM_UP, RobotMap.SOLENOID_ARM_DOWN);
 	}
 	/**
 	 * Method to move ballsucker rod in 
