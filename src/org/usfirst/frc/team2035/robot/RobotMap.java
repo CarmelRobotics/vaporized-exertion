@@ -1,5 +1,4 @@
 package org.usfirst.frc.team2035.robot;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -18,17 +17,6 @@ public class RobotMap {
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
-	
-	/* TEST CODE */
-	//public static final int MOTOR = 0;
-	//public static final int STICK = 1;
-	//public static final int BUTTON_1 = 1;
-	//public static final int BUTTON_2 = 2;
-	//public static final Joystick DRIVER_JOYSTICK = new Joystick(STICK);
-	//public static final JoystickButton MOVE_MOTOR_BACKWARD = new JoystickButton(DRIVER_JOYSTICK, BUTTON_1); 
-	//public static final JoystickButton MOVE_MOTOR_FORWARD = new JoystickButton(DRIVER_JOYSTICK, BUTTON_2);
-
 
 	
 	/*
@@ -39,9 +27,16 @@ public class RobotMap {
     public static final int F_RIGHT_MOTOR_PWM = 0; // Front Right drive motor is wired to PWM out [0]/2
     public static final int B_RIGHT_MOTOR_PWM = 1; // Rear Right drive motor is wired to PWM out [1]/3 
     public static final int HANGERMOTER_PWN = 4;
+    public static final int FLYWHEEL = 5;
     public static final int LIFT_MOTOR_PWM = 6;
     public static final int BALLSUCKER_MOTOR_PWM = 7;
-	 static final int ARM_MOTOR_PWM = 8;
+	public static final int SHOOTER_INTAKE = 8;
+	
+	/*
+	 * Talon IDs
+	 */
+	public static final int TURRET_ID = 0;
+	public static final int EYELID_ID = 1;
     
     /*
      * Joysticks
@@ -81,5 +76,24 @@ public class RobotMap {
 	
 	public static final int DRIVE_TRAIN_SHIFT_RIGHT = 0; //Drive Train High Gear Solenoid set to Relay cartridge 1
 	public static final int DRIVE_TRAIN_SHIFT_LEFT = 1; //Drive Train Low Gear Solenoid set to Relay cartridge 1
+	
+	/*
+	 * MISC
+	 */
+	public static final int ULTRASONIC_ANALOG = 1;
+	public static final int TURRET_RATIO = 15; //15 motor turns for 180 degrees
+	public static final int ENCODER_STEPS = 4096; //Steps per rotation of shaft
+	public static final int STEPS_90_DEG = (int)(7.5*4096);
 }
 
+
+	//public static final JoystickButton STOP = new JoystickButton(JOYSTICK, 4);
+	//public static final JoystickButton FORWARDS = new JoystickButton(JOYSTICK, 2);
+	//public static final JoystickButton BACKWARDS = new JoystickButton(JOYSTICK, 3);
+	//public static final JoystickButton GET_DISTANCE = new JoystickButton(JOYSTICK, 1);
+	
+	//public static final JoystickButton TALON_FORWARD = new JoystickButton(JOYSTICK, 6);
+	//public static final JoystickButton TALON_BACKWARDS = new JoystickButton(JOYSTICK, 7);
+	//public static final JoystickButton TALON_STOP = new JoystickButton(JOYSTICK, 8);
+	//public static final JoystickButton TARGET_TURRET = new JoystickButton(JOYSTICK, 9);
+	//public static final JoystickButton GET_COUNT = new JoystickButton(JOYSTICK, 10);

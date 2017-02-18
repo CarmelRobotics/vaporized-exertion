@@ -1,11 +1,15 @@
 package org.usfirst.frc.team2035.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import java.io.PrintWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import org.usfirst.frc.team2035.robot.subsystems.*;
 import org.usfirst.frc.team2035.robot.commands.*;
 
@@ -19,12 +23,23 @@ import org.usfirst.frc.team2035.robot.commands.*;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static OurMotor motor;
+	public static MaxbotixUltrasonic ultraSonic;
+	public static Shooter shooter;
+	public static LEDConnection leds;
+	public static DriverStation driverStation;
 	public static OI oi;
+
 	public static DriveTrain driver;
 	public static Hanger hanger;
 	public static NewElevator nlift;
 	public static BallSucker bs;
 	public static ACompressor compressor;
+	
+	public static DriverStation.Alliance alliance;
+	public static GetUltraValues ultraValues = new GetUltraValues();
+	public static File file = new File("src/org/usfirst/frc/team2035/robot/ultrasonic_data.txt");
+
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -35,7 +50,11 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		
+		ultraSonic = new MaxbotixUltrasonic(RobotMap.ULTRASONIC_ANALOG);
+		shooter = new Shooter();
+		leds = new LEDConnection();
+		driverStation = DriverStation.getInstance();
+		OI.initialize();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
@@ -46,6 +65,7 @@ public class Robot extends IterativeRobot {
 		bs = new BallSucker();
 		driver.shiftHighGear();
 		OI.initialize();
+		alliance = driverStation.getAlliance();
 	}
 
 	/**
@@ -61,6 +81,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		shooter.manualTurretStop();
 	}
 
 	/**
@@ -76,14 +97,20 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		//autonomousCommand = chooser.getSelected();
 
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
+		
+		 String autoSelected = SmartDashboard.getString("Auto Selector", "Default"); 
+		 switch(autoSelected) { 
+		 	case "My Auto": 
+		 		autonomousCommand = new ExampleCommand(); 
+		 		break; 
+		 	case "Default Auto": 
+		 		default:
+		 			autonomousCommand = new ExampleCommand(); 
+		 			break; 
+		 }
+		 
 
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
@@ -96,6 +123,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+
+		
+		
 	}
 
 	@Override
@@ -106,7 +136,9 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		
 		compressor.start();
+
 	}
 
 	/**
@@ -115,7 +147,19 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
 		driver.arcadeDrive();
+		
+        System.out.println("Encoder Position: " + shooter.getEncPosition());
+    
+        if (alliance == DriverStation.Alliance.Red) {
+            leds.red();
+        } else if (alliance == DriverStation.Alliance.Blue) {
+            leds.blue();
+        } else {
+            leds.rainbow();
+        }
+
 	}
 
 	/**
@@ -138,5 +182,12 @@ public class Robot extends IterativeRobot {
 	}
     public static BallSucker getBallSucker(){
 		return bs;
+	}
+	
+	public static Shooter getShooter() {
+		return shooter;
+	}
+	public static LEDConnection getLEDConnection() {
+		return leds;
 	}
 }

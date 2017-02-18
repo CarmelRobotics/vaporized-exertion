@@ -2,13 +2,18 @@ package org.usfirst.frc.team2035.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import org.usfirst.frc.team2035.robot.RobotMap;
+<<<<<<< HEAD
 
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2035.robot.commands.HangerSpin;
+=======
+import org.usfirst.frc.team2035.robot.commands.*;
+>>>>>>> refs/heads/Abby
 
+<<<<<<< HEAD
 import org.usfirst.frc.team2035.robot.subsystems.*;
 import org.usfirst.frc.team2035.robot.commands.*;
 
@@ -64,27 +69,58 @@ public class OI {
 	public static void initialize() {
 	
 	
+		hangerSpin = RobotMap.HANGERBUTTON_FORWARD;
+		shiftGear = RobotMap.SHIFT_GEAR;
+		ballIn = RobotMap.BALL_IN;
+		ballOut = RobotMap.BALL_OUT;
+		//spinStop  = RobotMap.SPIN_STOP;
+		armUp = RobotMap.ARM_UP;
+		armDown = RobotMap.ARM_DOWN;
+		//armStop = RobotMap.ARM_STOP;
 	
-	hangerSpin = RobotMap.HANGERBUTTON_FORWARD;
-	shiftGear = RobotMap.SHIFT_GEAR;
-	ballIn = RobotMap.BALL_IN;
-	ballOut = RobotMap.BALL_OUT;
-	//spinStop  = RobotMap.SPIN_STOP;
-	armUp = RobotMap.ARM_UP;
-	armDown = RobotMap.ARM_DOWN;
-	//armStop = RobotMap.ARM_STOP;
-	
-	hangerSpin.whileHeld(new HangerSpin());
-	shiftGear.whileHeld(new ShiftLowGear());
-	ballIn.whileHeld(new BallIntake());
-	ballOut.whileHeld(new BallOutake());
-	//spinStop.whenPressed(new SpinStop());
-	
-	armUp.whileHeld(new ArmUp());
-	armDown.whileHeld(new ArmDown());
-	//armStop.whenPressed(new ArmStop());
-	
-	
+		hangerSpin.whileHeld(new HangerSpin());
+		shiftGear.whileHeld(new ShiftLowGear());
+		ballIn.whileHeld(new BallIntake());
+		ballOut.whileHeld(new BallOutake());
+		//spinStop.whenPressed(new SpinStop());
+		
+		armUp.whileHeld(new ArmUp());
+		armDown.whileHeld(new ArmDown());
+		//armStop.whenPressed(new ArmStop());
+		
+//	private static Button forwards;
+//	private static Button backwards;
+//	private static Button stop;
+//	private static Button getDistance;
+//	private static Button turretForward;
+//	private static Button turretBackwards;
+//	private static Button turretStop;
+//	private static Button targetTurret;
+//	private static Button getCount;
+//	
+//	public static void initialize() {
+//		forwards = RobotMap.FORWARDS;
+//		backwards = RobotMap.BACKWARDS;
+//		stop = RobotMap.STOP;
+//		getDistance = RobotMap.GET_DISTANCE;
+//		turretForward = RobotMap.TALON_FORWARD;
+//		turretBackwards = RobotMap.TALON_BACKWARDS;
+//		turretStop = RobotMap.TALON_STOP;
+//		targetTurret = RobotMap.TARGET_TURRET;
+//		getCount = RobotMap.GET_COUNT;
+//		
+//		forwards.whileHeld(new MotorForward());
+//		backwards.whileHeld(new MotorBackward());
+//		stop.whileHeld(new MotorStop());
+//		getDistance.whileHeld(new GetUltraValues());
+//		turretForward.whileHeld(new MoveTurret());
+//		turretBackwards.whileHeld(new MoveTurretNegative());
+//		turretStop.whileHeld(new MoveTurretStop());
+//		targetTurret.whenPressed(new TargetTurret());
+//		getCount.whileHeld(new GetNetworkTableValue());
+//		
+//	
+//		
+		
 	}
-	
 }
