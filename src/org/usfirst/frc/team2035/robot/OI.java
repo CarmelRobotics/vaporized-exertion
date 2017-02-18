@@ -55,7 +55,12 @@ public class OI {
 	public static Button lift;
 	public static Button lower;
 	public static Button stop;
-	
+	private static Button spinIn;
+	private static Button spinOut;
+	private static Button spinStop; 
+	private static Button armUp; 
+	//private static Button armDown;
+	//private static Button armStop;
 	
 	//init the oi's
 	
@@ -69,6 +74,12 @@ public class OI {
 	lift = RobotMap.LIFT;
 	lower = RobotMap.LOWER;
 	stop = RobotMap.STOP;
+	spinIn = RobotMap.SPIN_IN; 
+	spinOut = RobotMap.SPIN_OUT;
+	//spinStop  = RobotMap.SPIN_STOP;
+	armUp = RobotMap.ARM_UP;
+	//armDown = RobotMap.ARM_DOWN;
+	//armStop = RobotMap.ARM_STOP;
 	
 	hangerSpin.whileHeld(new HangerSpin());
 	shiftGear.whileHeld(new ShiftLowGear());
@@ -76,7 +87,13 @@ public class OI {
 	lower.whileHeld(new LowerElevator());
 	stop.whenPressed(new StopElevator());
 	
-
+	spinIn.whileHeld(new SpinIn());
+	spinOut.whileHeld(new SpinOut());
+	//spinStop.whenPressed(new SpinStop());
+	
+	armUp.whileHeld(new ArmUp());
+	//armDown.whileHeld(new ArmDown());
+	//armStop.whenPressed(new ArmStop());
 	
 	
 	}

@@ -23,6 +23,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driver;
 	public static Hanger hanger;
 	public static NewElevator nlift;
+	public static BallSucker bs;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -39,6 +40,7 @@ public class Robot extends IterativeRobot {
 		driver = new DriveTrain();
 		hanger = new Hanger();
 		nlift = new NewElevator();
+		bs = new BallSucker();
 		driver.shiftHighGear();
 		OI.initialize();
 	}
@@ -129,5 +131,8 @@ public class Robot extends IterativeRobot {
 	{
 		return nlift;
 		
+	}
+    public static BallSucker getBallSucker(){
+		return bs;
 	}
 }
