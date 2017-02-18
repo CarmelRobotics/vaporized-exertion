@@ -20,9 +20,11 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
-	//Channel Values
-	public static final int PWM1 = 0;
+	//CHANNELS
+	public static final int FLYWHEEL = 5; //????
+	public static final int SHOOTER_INTAKE = 8;
 	public static final int TURRET_ID = 0;
+	public static final int EYELID_ID = 1;
 	public static final int ULTRASONIC_ANALOG = 1;
 	
 	//Joystick Buttons

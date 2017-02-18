@@ -30,7 +30,10 @@ public class Robot extends IterativeRobot {
 	public static OurMotor motor;
 	public static MaxbotixUltrasonic ultraSonic;
 	public static Shooter shooter;
+	public static LEDConnection leds;
+	public static DriverStation driverStation;
 	public static OI oi;
+	public static DriverStation.Alliance alliance;
 	public static GetUltraValues ultraValues = new GetUltraValues();
 	public static File file = new File("src/org/usfirst/frc/team2035/robot/ultrasonic_data.txt");
 
@@ -46,10 +49,14 @@ public class Robot extends IterativeRobot {
 		motor = new OurMotor();
 		ultraSonic = new MaxbotixUltrasonic(RobotMap.ULTRASONIC_ANALOG);
 		shooter = new Shooter();
+		leds = new LEDConnection();
+		driverStation = DriverStation.getInstance();
 		OI.initialize();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		
+		alliance = driverStation.getAlliance();
 	}
 
 	/**
@@ -65,6 +72,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		shooter.manualTurretStop();
 	}
 
 	/**
@@ -80,14 +88,20 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		//autonomousCommand = chooser.getSelected();
 
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
+		
+		 String autoSelected = SmartDashboard.getString("Auto Selector", "Default"); 
+		 switch(autoSelected) { 
+		 	case "My Auto": 
+		 		autonomousCommand = new ExampleCommand(); 
+		 		break; 
+		 	case "Default Auto": 
+		 		default:
+		 			autonomousCommand = new ExampleCommand(); 
+		 			break; 
+		 }
+		 
 
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
@@ -123,27 +137,16 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		
-//		PrintWriter printWriter = null;
-//
-//        try {
-//            printWriter = new PrintWriter(file);
-//            double distance = ultraValues.output();
-//    		double time = DriverStation.getInstance().getMatchTime();
-//    		String output = distance + " " + time;
-//    		printWriter.write(output);
-//        }
-//        catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//            System.out.println("File not found");
-//        }
-//        finally {
-//            if ( printWriter != null ) 
-//            {
-//                printWriter.close();
-//            }
-//        }
         System.out.println("Encoder Position: " + shooter.getEncPosition());
-        
+    
+        if (alliance == DriverStation.Alliance.Red) {
+            leds.red();
+        } else if (alliance == DriverStation.Alliance.Blue) {
+            leds.blue();
+        } else {
+            leds.rainbow();
+        }
+	
 	}
 
 	/**
@@ -160,5 +163,8 @@ public class Robot extends IterativeRobot {
 	
 	public static Shooter getShooter() {
 		return shooter;
+	}
+	public static LEDConnection getLEDConnection() {
+		return leds;
 	}
 }

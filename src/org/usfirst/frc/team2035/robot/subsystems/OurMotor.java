@@ -20,7 +20,7 @@ public class OurMotor extends Subsystem {
 	public OurMotor() {
 		super("Arm");
 		
-		speedController = new CANTalon(RobotMap.PWM1);
+		speedController = new CANTalon(0);
 		speedController.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Absolute);
 	}
 	
