@@ -22,6 +22,7 @@ public class ArmDown extends Command{
 	protected void execute() {
 		bs.armDown();
 		
+		
 	}
 	protected boolean isFinished()
 	{

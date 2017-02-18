@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 public class BallSucker extends Subsystem{
 	/**
 	 * DISCLAIMER!!!!
-	 * We have commented out all solenoid lines. The spin methods are good as is.
+	 * The arm movement commands are now using solenoids, change back to motors by commenting/uncommenting respective lines. The spin methods are good as is.
 	 * Check in all the Arm classes.
 	 * 
 	 * ..unless it doesn't work. Then we're sorry. :(
@@ -24,7 +24,7 @@ public class BallSucker extends Subsystem{
 		super("Ball Sucker");
 		rod = new Victor(RobotMap.BALLSUCKER_MOTOR_PWM);
 		//arm = new Victor(RobotMap.ARM_MOTOR_PWM);
-		sol = new DoubleSolenoid( RobotMap.SOLENOID_ARM_UP, RobotMap.SOLENOID_ARM_DOWN);
+		sol = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.SOLENOID_ARM_UP, RobotMap.SOLENOID_ARM_DOWN);
 	}
 	/**
 	 * Method to move ballsucker rod in 
