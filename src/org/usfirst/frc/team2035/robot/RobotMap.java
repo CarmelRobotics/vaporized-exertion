@@ -70,7 +70,7 @@ public class RobotMap {
 	 */
 	public static final int PCM_ID_DRIVER = 0;
 	public static final int PCM_ID_GEAR = 1;
-	public static final int PCM_ID = 0;
+	public static final int PCM_ID = 0; 
 	public static final int SOLENOID_ARM_UP = 6;
     public static final int SOLENOID_ARM_DOWN = 7;
 	
