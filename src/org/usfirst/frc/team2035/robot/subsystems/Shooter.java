@@ -59,13 +59,31 @@ public class Shooter extends Subsystem {
 	public void intakeOut() {
 		intake.set(-1.0);
 	}
+	/**
+	 * Shooter Intake Stop
+	 */
+	public void intakeStop() {
+		intake.set(0);
+	}
 	
 	//FLYWHEEL
 	/**
 	 * Activates the Flywheel
 	 */
-	public void spinFlywheel() {
+	public void spinFlywheelForwards() {
 		flyWheel.set(1.0);
+	}
+	/**
+	 * Spins flywheel backwards
+	 */
+	public void spinFlywheelBackwards() {
+		flyWheel.set(-1.0);
+	}
+	/**
+	 * Stops flywheel
+	 */
+	public void stopFlywheel() {
+		flyWheel.set(0.0);
 	}
 	
 	//EYELID
@@ -118,6 +136,7 @@ public class Shooter extends Subsystem {
 	
 	public void targetTurret() {
 		turret.set(calculateSetPoint());
+		
 		
 		System.out.println(calculateSetPoint());
 		
