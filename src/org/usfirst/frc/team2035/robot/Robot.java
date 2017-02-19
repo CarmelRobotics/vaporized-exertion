@@ -23,7 +23,7 @@ import org.usfirst.frc.team2035.robot.commands.*;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static OurMotor motor;
+
 	public static MaxbotixUltrasonic ultraSonic;
 	public static Shooter shooter;
 	public static LEDConnection leds;
