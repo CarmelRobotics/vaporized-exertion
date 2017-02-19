@@ -69,6 +69,9 @@ public class OI {
 	shiftGear = RobotMap.SHIFT_GEAR;
 	ballIn = RobotMap.BALL_IN;
 	ballOut = RobotMap.BALL_OUT;
+	shiftHighTest = RobotMap.SHIFT_HIGH_TEST;
+	shiftHighTest = RobotMap.SHIFT_LOW_TEST;
+	
 	//spinStop  = RobotMap.SPIN_STOP;
 	armUp = RobotMap.ARM_UP;
 	armDown = RobotMap.ARM_DOWN;
@@ -76,6 +79,7 @@ public class OI {
 	
 	hangerSpin.whileHeld(new HangerSpin());
 	shiftGear.whileHeld(new ShiftLowGear());
+	
 	ballIn.whileHeld(new BallIntake());
 	ballOut.whileHeld(new BallOutake());
 	//spinStop.whenPressed(new SpinStop());
