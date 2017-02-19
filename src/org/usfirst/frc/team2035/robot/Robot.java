@@ -54,7 +54,6 @@ public class Robot extends IterativeRobot {
 		shooter = new Shooter();
 		leds = new LEDConnection();
 		driverStation = DriverStation.getInstance();
-		OI.initialize();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);

@@ -68,8 +68,8 @@ public class OI {
 		ballIn = RobotMap.BALL_IN;
 		ballOut = RobotMap.BALL_OUT;
 		//spinStop  = RobotMap.SPIN_STOP;
-		armUp = RobotMap.ARM_UP;
-		armDown = RobotMap.ARM_DOWN;
+		//armUp = RobotMap.ARM_UP;
+		//armDown = RobotMap.ARM_DOWN;
 		//armStop = RobotMap.ARM_STOP;
 	
 		hangerSpin.whileHeld(new HangerSpin());
@@ -78,8 +78,8 @@ public class OI {
 		ballOut.whileHeld(new BallOutake());
 		//spinStop.whenPressed(new SpinStop());
 		
-		armUp.whileHeld(new ArmUp());
-		armDown.whileHeld(new ArmDown());
+		//armUp.whileHeld(new ArmUp());
+		//armDown.whileHeld(new ArmDown());
 		//armStop.whenPressed(new ArmStop());
 		
 //	private static Button forwards;
