@@ -197,6 +197,9 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic() {
 		LiveWindow.run();
 	}
+	public static MaxbotixUltrasonic getUltrasonic() {
+		return ultraSonic;
+	}
     public static DriveTrain getDriveTrain() {
     	return driver;
     }

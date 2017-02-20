@@ -6,6 +6,7 @@ import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import org.usfirst.frc.team2035.robot.subsystems.MaxbotixUltrasonic;
 import java.lang.Math;
 
 import org.usfirst.frc.team2035.robot.RobotMap;
@@ -99,7 +100,7 @@ public class Shooter extends Subsystem {
 		double g = .098;
 		double x = 0.0;
 		double v = 0.0;
-		double y = 0.0;
+		double y = Robot.getUltrasonic().getRangeInCM();
 		double beta = 0.0;
 		//double angle = Math.arccos((g*x)/v)-beta;
 		return 0.0;

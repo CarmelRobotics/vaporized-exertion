@@ -99,9 +99,9 @@ public class MaxbotixUltrasonic extends SensorBase {
             return -2.0;
         }
         double milliVolts = (channel.getVoltage())*1000;
-        double inches = (5*milliVolts)/(MV_PER_5MM*10*IN_TO_CM);
+        double cm = (5*milliVolts)/(MV_PER_5MM*10);
         
-        return inches;
+        return cm;
         
         
         
