@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.CameraServer;
 import java.io.PrintWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -37,6 +38,7 @@ public class Robot extends IterativeRobot {
 	public static ACompressor compressor;
 	
 	public static DriverStation.Alliance alliance;
+	public static CameraServer server;
 	public static GetUltraValues ultraValues = new GetUltraValues();
 	public static File file = new File("src/org/usfirst/frc/team2035/robot/ultrasonic_data.txt");
 
@@ -63,6 +65,9 @@ public class Robot extends IterativeRobot {
 		nlift = new NewElevator();
 		bs = new BallSucker();
 		driver.shiftHighGear();
+		server = CameraServer.getInstance();
+		server.setQuality(50);
+		server.startAutomaticCapture();
 		OI.initialize();
 		alliance = driverStation.getAlliance();
 	}
