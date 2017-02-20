@@ -66,7 +66,7 @@ public class Robot extends IterativeRobot {
 		bs = new BallSucker();
 		driver.shiftHighGear();
 		server = CameraServer.getInstance();
-		server.setQuality(50);
+		//server.setQuality(50);
 		server.startAutomaticCapture();
 		OI.initialize();
 		alliance = driverStation.getAlliance();
@@ -132,7 +132,7 @@ public class Robot extends IterativeRobot {
 		 		break;
 
 	 		default:
-	 			autonomousCommand = new ExampleCommand(); 
+	 			autonomousCommand = new Auto1Red(); 
 	 			break; 
 		 }
 		 
