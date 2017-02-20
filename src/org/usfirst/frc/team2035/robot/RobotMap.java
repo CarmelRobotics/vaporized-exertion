@@ -55,8 +55,7 @@ public class RobotMap {
 	public static final JoystickButton BALL_OUT = new JoystickButton(DRIVER_JOYSTICK_A,2);
 	public static final JoystickButton BALL_IN = new JoystickButton(DRIVER_JOYSTICK_A,3);
 	//public static final JoystickButton STOP = new JoystickButton(DRIVER_JOYSTICK_A,6);
-    public static final JoystickButton ARM_UP = new JoystickButton(DRIVER_JOYSTICK_A, 6);
-    public static final JoystickButton ARM_DOWN = new JoystickButton(DRIVER_JOYSTICK_A, 7);
+    public static final JoystickButton TOGGLE_ARM = new JoystickButton(DRIVER_JOYSTICK_A, 8);
     
 	/* MOTOR SPEEDS */
 	public static final double ELEVATOR_LIFT_UP = 1;
@@ -69,13 +68,12 @@ public class RobotMap {
 	 * Solenoids
 	 */
 	public static final int PCM_ID_DRIVER = 0;
-	public static final int PCM_ID_GEAR = 1;
+	public static final int HIGH_GEAR = 2;
+	public static final int LOW_GEAR = 3;
 	public static final int PCM_ID = 0; 
-	public static final int SOLENOID_ARM_UP = 6;
-    public static final int SOLENOID_ARM_DOWN = 7;
+	public static final int SOLENOID_ARM_UP = 0;
+    public static final int SOLENOID_ARM_DOWN = 1;
 	
-	public static final int DRIVE_TRAIN_SHIFT_RIGHT = 0; //Drive Train High Gear Solenoid set to Relay cartridge 1
-	public static final int DRIVE_TRAIN_SHIFT_LEFT = 1; //Drive Train Low Gear Solenoid set to Relay cartridge 1
 	
 	/*
 	 * MISC

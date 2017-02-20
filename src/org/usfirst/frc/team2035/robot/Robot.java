@@ -105,25 +105,25 @@ public class Robot extends IterativeRobot {
 		 		autonomousCommand = new Auto1Red(); 
 		 		break;
 		 	case "Auto2Red": 
-		 		autonomousCommand = new Auto2Red(); 
+		 		autonomousCommand = new Auto1Red(); 
 		 		break;
 		 	case "Auto3Red": 
-		 		autonomousCommand = new Auto3Red(); 
+		 		autonomousCommand = new Auto1Red(); 
 		 		break;
 		 	case "Auto4Red": 
-		 		autonomousCommand = new Auto4Red(); 
+		 		autonomousCommand = new Auto1Red(); 
 		 		break;
 		 	case "Auto1Blue": 
-		 		autonomousCommand = new Auto1Blue(); 
+		 		autonomousCommand = new Auto1Red(); 
 		 		break;
 		 	case "Auto2Blue": 
-		 		autonomousCommand = new Auto2Blue(); 
+		 		autonomousCommand = new Auto1Red(); 
 		 		break;
 		 	case "Auto3Blue": 
-		 		autonomousCommand = new Auto3Blue(); 
+		 		autonomousCommand = new Auto1Red(); 
 		 		break;
 		 	case "Auto4Blue": 
-		 		autonomousCommand = new Auto4Blue(); 
+		 		autonomousCommand = new Auto1Red(); 
 		 		break;
 
 	 		default:
@@ -170,7 +170,7 @@ public class Robot extends IterativeRobot {
 		
 		driver.arcadeDrive();
 		
-        System.out.println("Encoder Position: " + shooter.getEncPosition());
+        //System.out.println("Encoder Position: " + shooter.getEncPosition());
     
         if (alliance == DriverStation.Alliance.Red) {
         	System.out.println("RED");

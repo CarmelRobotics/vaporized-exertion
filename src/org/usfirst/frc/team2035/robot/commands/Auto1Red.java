@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team2035.robot.Robot;
 import org.usfirst.frc.team2035.robot.subsystems.*;
+import org.usfirst.frc.team2035.robot.OI;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
@@ -20,9 +21,9 @@ public class Auto1Red extends Command {
 	public Auto1Red() {
 		super("Autonomous 1 Red");
 		driver = Robot.getDriveTrain();
-		shooter = Robot.getShooter;
+		shooter = Robot.getShooter();
 		
-		requries(driver);
+		requires(driver);
 	}
 
 	// Called just before this Command runs the first time

@@ -136,7 +136,7 @@ public class Shooter extends Subsystem {
 	 */
 	public void switchToPID() {
 		turret.changeControlMode(TalonControlMode.Position);
-		false;
+		manual = false;
 	}
 	
 	public void turretMoveRight() {
@@ -164,8 +164,8 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void targetTurret() {
-		while(receiveAngle() == 999) {
-			double currentPos = (turret.getEncPos()/4096);
+		while(Double.parseDouble(receiveAngle()) == 999) {
+			double currentPos = (turret.getEncPosition()/4096);
 			if(turret.getEncPosition() < (4096*.2)) {
 				turret.set(currentPos+.05);
 			}
