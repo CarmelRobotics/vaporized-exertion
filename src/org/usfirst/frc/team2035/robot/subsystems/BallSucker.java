@@ -19,6 +19,8 @@ public class BallSucker extends Subsystem{
 	private Victor rod; // motor for turning ballsucker rod 
 	private Victor arm; // motor for moving ballsucker up and down 
 	private DoubleSolenoid sol; // solenoid use for ballsucker up and down
+	public static bool up = true;
+	
 	
 	public BallSucker() { 
 		super("Ball Sucker");

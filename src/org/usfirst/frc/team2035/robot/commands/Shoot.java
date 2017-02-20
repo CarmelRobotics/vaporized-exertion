@@ -5,7 +5,7 @@ import org.usfirst.frc.team2035.robot.Robot;
 import org.usfirst.frc.team2035.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Shoot extends Command{ 
+public class Shoot extends Command { 
 
 	public static OI oi;
 	private final Shooter shooter;

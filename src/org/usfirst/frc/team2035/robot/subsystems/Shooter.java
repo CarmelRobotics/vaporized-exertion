@@ -6,6 +6,7 @@ import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import java.lang.Math;
 
 import org.usfirst.frc.team2035.robot.RobotMap;
 
@@ -25,6 +26,7 @@ public class Shooter extends Subsystem {
 	private double d;
 	
 	public static boolean targeted;
+	public static boolean manual = false;
 	
 	public Shooter() {
 		super("Shooter");
@@ -92,14 +94,33 @@ public class Shooter extends Subsystem {
 	 * @return Target angle for the eyelid (degrees)
 	 */
 	public double findEyelidAngle() {
-		//import equation
+		double g = .098;
+		double x = 0.0;
+		double v = 0.0;
+		double y = 0.0;
+		double beta = 0.0;
+		//double angle = Math.arccos((g*x)/v)-beta;
 		return 0.0;
 	}
+	
 	/**
 	 * Calculates number of rotations for eyelid Angle
 	 */
 	public double findEyelidRotations() {
 		return 0.0;
+	}
+	/**
+	 * Default method to move eyelid to a position based on ultrasonic distance given angle
+	 */
+	public void moveEyelid() {
+		
+	}
+	/**
+	 * Moves eyelid to a position based on user input angle
+	 * @param angle (degrees)
+	 */
+	public void moveEyelid(double angle) {
+		
 	}
 	
 	//TURRET
@@ -108,23 +129,31 @@ public class Shooter extends Subsystem {
 	 */
 	public void switchToManual() {
 		turret.changeControlMode(TalonControlMode.PercentVbus);
+		manual = true;
 	}
 	/**
 	 * Switches to Position Control Mode
 	 */
 	public void switchToPID() {
 		turret.changeControlMode(TalonControlMode.Position);
+		false;
 	}
 	
-	public void manualTurretMoveRight() {
+	public void turretMoveRight() {
 		if(turret.getControlMode() == TalonControlMode.PercentVbus) {
 			turret.set(.5);
 		}
+		else {
+			turret.set(.24);
+		}
 	}
 	
-	public void manualTurretMoveLeft() {
+	public void turretMoveLeft() {
 		if(turret.getControlMode() == TalonControlMode.PercentVbus) {
 			turret.set(-.5);
+		}
+		else {
+			turret.set(-.24);
 		}
 	}
 	
@@ -135,11 +164,17 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void targetTurret() {
+		while(receiveAngle() == 999) {
+			double currentPos = (turret.getEncPos()/4096);
+			if(turret.getEncPosition() < (4096*.2)) {
+				turret.set(currentPos+.05);
+			}
+			else {
+				turret.set(currentPos-.05);
+			}
+		}
 		turret.set(calculateSetPoint());
-		
-		
 		System.out.println(calculateSetPoint());
-		
 	}
 	
 	public String receiveAngle() {
@@ -156,7 +191,7 @@ public class Shooter extends Subsystem {
 	public double calculateSetPoint() {
 		//turn degrees into fraction of rotation
 		double angle = Double.parseDouble(receiveAngle()); //custom, eventually set to receiveAngle()
-		//double angle2 = Double.parseDouble(receiveAngle());
+		//double angle2gedi = Double.parseDouble(receiveAngle());
 		double point = angle/360;
 		if(point > .5) {
 			point = .5;

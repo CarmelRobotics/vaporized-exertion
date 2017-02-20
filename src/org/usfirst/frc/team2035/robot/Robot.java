@@ -101,13 +101,34 @@ public class Robot extends IterativeRobot {
 		
 		 String autoSelected = SmartDashboard.getString("Auto Selector", "Default"); 
 		 switch(autoSelected) { 
-		 	case "My Auto": 
-		 		autonomousCommand = new ExampleCommand(); 
-		 		break; 
-		 	case "Default Auto": 
-		 		default:
-		 			autonomousCommand = new ExampleCommand(); 
-		 			break; 
+		 	case "Auto1Red": 
+		 		autonomousCommand = new Auto1Red(); 
+		 		break;
+		 	case "Auto2Red": 
+		 		autonomousCommand = new Auto2Red(); 
+		 		break;
+		 	case "Auto3Red": 
+		 		autonomousCommand = new Auto3Red(); 
+		 		break;
+		 	case "Auto4Red": 
+		 		autonomousCommand = new Auto4Red(); 
+		 		break;
+		 	case "Auto1Blue": 
+		 		autonomousCommand = new Auto1Blue(); 
+		 		break;
+		 	case "Auto2Blue": 
+		 		autonomousCommand = new Auto2Blue(); 
+		 		break;
+		 	case "Auto3Blue": 
+		 		autonomousCommand = new Auto3Blue(); 
+		 		break;
+		 	case "Auto4Blue": 
+		 		autonomousCommand = new Auto4Blue(); 
+		 		break;
+
+	 		default:
+	 			autonomousCommand = new ExampleCommand(); 
+	 			break; 
 		 }
 		 
 
@@ -143,7 +164,7 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during operator control
 	 */
-	@Override
+	 @Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		
@@ -152,11 +173,14 @@ public class Robot extends IterativeRobot {
         System.out.println("Encoder Position: " + shooter.getEncPosition());
     
         if (alliance == DriverStation.Alliance.Red) {
+        	System.out.println("RED");
             leds.red();
         } else if (alliance == DriverStation.Alliance.Blue) {
             leds.blue();
+            System.out.println("BLUE");
         } else {
             leds.rainbow();
+            System.out.println("NO");
         }
 
 	}

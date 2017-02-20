@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
  */
 public class LEDConnection extends Subsystem {
 	// Put methods for controlling this subsystem
-	// here. Call these from Commands.
 	private NetworkTable table;
 	
 	
