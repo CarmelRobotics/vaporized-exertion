@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team2035.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick; 
 
 import edu.wpi.first.wpilibj.Victor;
@@ -18,7 +19,8 @@ public class NewElevator extends Subsystem {
 	
 	private Joystick stick;
 	private VictorSP speedControl;
-
+	private DoubleSolenoid doubSol;
+		
 
 	public NewElevator()
 	{
@@ -28,23 +30,32 @@ public class NewElevator extends Subsystem {
 		speedControl = new VictorSP(RobotMap.LIFT_MOTOR_PWM);
 		
 		
+		//Declare PWMS
+		doubSol = new DoubleSolenoid(0, 0, 0);
 		
 	}
 	
 	public void liftElevator() {
 		speedControl.set(RobotMap.ELEVATOR_LIFT_UP);
 		
-	
 	}
 	
 	public void lowerElevator() {
 		speedControl.set(RobotMap.ELEVATOR_LIFT_DOWN);
 		
+	}
 	
+	
+	public void gearSolenoidSetForward() {
+		
+		doubSol.set(DoubleSolenoid.Value.kForward);
 	}
 
+	public void gearSolenoidSetReverse() {
+	doubSol.set(DoubleSolenoid.Value.kReverse);
+	}
 	
-
+	
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
