@@ -39,15 +39,19 @@ public class Auto1Red extends Command {
 	@Override
 	protected void execute() {
 		autoTimer.start();
-		shooter.moveEyelid(45);
-		shooter.switchToPID();
-		shooter.turretMoveRight();
+		//shooter.moveEyelid(45);
+		//shooter.switchToPID();
+		//shooter.turretMoveRight();
+		//double currentTime = autoTimer.get();
+		//while(autoTimer.get() <= (currentTime + 3)) {
+		//	shooter.shoot();
+		//}
+		//shooter.stopShoot();
 		currentTime = autoTimer.get();
-		while(autoTimer.get() <= (currentTime + 3)) {
-			shooter.shoot();
+		while(autoTimer.get() <= (currentTime + 4)) {
+			driver.drive(.25, 0.0);
 		}
-		shooter.stopShoot();
-		
+		//TODO: Add gear mechanism
 		
 		
 	}
@@ -55,7 +59,7 @@ public class Auto1Red extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return true;
 	}
 
 	// Called once after isFinished returns true
