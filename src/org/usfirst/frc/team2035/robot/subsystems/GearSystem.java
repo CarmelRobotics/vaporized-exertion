@@ -19,7 +19,7 @@ public class GearSystem extends Subsystem {
 		/*I am assuming two motors for the elevator. one for the front. One for the back.*/
 	
 
-		
+		   
 		
 		//Declare PWMS
 		doubSol = new DoubleSolenoid(0, 0, 0);

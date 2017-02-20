@@ -39,7 +39,7 @@ public class GearSolenoidIn extends Command {
     	gearSystem.setGearSolenoidReverse();
     
     }
-     
+      
     protected boolean isFinished() {
     	return false;
     }
