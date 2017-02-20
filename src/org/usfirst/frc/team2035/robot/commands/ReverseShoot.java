@@ -17,15 +17,13 @@ public class ReverseShoot extends Command{
 	
 	@Override
 	protected void execute() {
-		shooter.intakeOut();
-		shooter.spinFlywheelBackwards();
+		shooter.reverseShoot();
 	}
 	
 	 
 	@Override
 	protected void end() {
-		shooter.stopFlywheel();
-		shooter.intakeStop();
+		shooter.stopShoot();
 	}
 
 	
@@ -38,8 +36,7 @@ public class ReverseShoot extends Command{
 
 	@Override
 	protected void interrupted() {
-		shooter.stopFlywheel();
-		shooter.intakeStop();
+		shooter.stopShoot();
 		
 	}
 	protected boolean isFinished() {

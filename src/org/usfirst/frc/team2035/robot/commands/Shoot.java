@@ -17,15 +17,13 @@ public class Shoot extends Command {
 	
 	@Override
 	protected void execute() {
-		shooter.intakeIn();
-		shooter.spinFlywheelForwards();
+		shooter.shoot();
 	}
 	
 	 
 	@Override
 	protected void end() {
-		shooter.stopFlywheel();
-		shooter.intakeStop();
+		shooter.stopShoot();
 	}
 
 	
@@ -38,8 +36,7 @@ public class Shoot extends Command {
 
 	@Override
 	protected void interrupted() {
-		shooter.stopFlywheel();
-		shooter.intakeStop();
+		shooter.stopShoot();
 		
 	}
 	protected boolean isFinished() {

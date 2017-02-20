@@ -82,8 +82,14 @@ public class RobotMap {
 	public static final int TURRET_RATIO = 15; //15 motor turns for 180 degrees
 	public static final int ENCODER_STEPS = 4096; //Steps per rotation of shaft
 	public static final int STEPS_90_DEG = (int)(7.5*4096);
+	
+	/*
+	 * AUTONOMOUS
+	 */
 	public static final int TURNING_RADIUS = 15; //inches
 	public static final int WHEEL_BASE = 24; //inches
+	public static final double HIGH_VELOCITY = 15; //feet per second
+	
 }
 
 	//public static final JoystickButton STOP = new JoystickButton(JOYSTICK, 4);

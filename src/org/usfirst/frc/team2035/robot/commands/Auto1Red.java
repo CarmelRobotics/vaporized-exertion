@@ -16,7 +16,7 @@ public class Auto1Red extends Command {
 	private DriveTrain driver;
 	private Shooter shooter;
 	public static OI oi;
-	private Timer autonomousTimer;
+	private Timer autoTimer;
 	
 	public Auto1Red() {
 		super("Autonomous 1 Red");
@@ -30,7 +30,7 @@ public class Auto1Red extends Command {
 	@Override
 	protected void initialize() {
 		oi = new OI();
-		autonomousTimer = new Timer();
+		autoTimer = new Timer();
 		
 		
 	}
@@ -38,10 +38,16 @@ public class Auto1Red extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		autonomousTimer.start();
+		autoTimer.start();
 		shooter.moveEyelid(45);
 		shooter.switchToPID();
 		shooter.turretMoveRight();
+		currentTime = autoTimer.get();
+		while(autoTimer.get() <= (currentTime + 3)) {
+			shooter.shoot();
+		}
+		shooter.stopShoot();
+		
 		
 		
 	}

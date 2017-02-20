@@ -48,6 +48,8 @@ public class Shooter extends Subsystem {
 		
 	}
 	
+	
+	
 	//INTAKE
 	/**
 	 * Shooter Intake In
@@ -215,6 +217,21 @@ public class Shooter extends Subsystem {
 	public void setEncPosition(int encPos) {
 		turret.setEncPosition(encPos);
 	}
+	
+	//SHOOT
+	public void shoot() {
+		intakeIn();
+		spinFlywheelForwards();
+	}
+	public void stopShoot() {
+		intakeStop();
+		stopFlywheel();
+	}
+	public void reverseShoot() {
+		intakeOut();
+		spinFlywheelBackwards();
+	}
+	
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
