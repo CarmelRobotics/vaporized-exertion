@@ -28,7 +28,7 @@ public class GearSolenoidOut extends Command {
     	requires(gearSystem);
     
     }
-    
+     
  
 // Called just before this Command runs the first time
 	@Override
