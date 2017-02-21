@@ -1,6 +1,7 @@
 import org.usfirst.frc.team2035.robot.subsystems.Override;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import org.usfirst.frc.team2035.robot.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;
 
@@ -22,7 +23,7 @@ public class GearSystem extends Subsystem {
 		    
 		
 		//Declare PWMS
-		doubSol = new DoubleSolenoid(0, 0, 0);
+		doubSol = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.GEAR_IN, RobotMap.GEAR_OUT);
 		
 	}
 

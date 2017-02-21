@@ -55,6 +55,8 @@ public class RobotMap {
 	public static final JoystickButton BALL_OUT = new JoystickButton(DRIVER_JOYSTICK_A,2);
 	public static final JoystickButton BALL_IN = new JoystickButton(DRIVER_JOYSTICK_A,3);
 	//public static final JoystickButton STOP = new JoystickButton(DRIVER_JOYSTICK_A,6);
+	public static final JoystickButton SHOOT = new JoystickButton(DRIVER_JOYSTICK_A,6);
+	public static final JoystickButton REVERSE_SHOOT = new JoystickButton
     public static final JoystickButton TOGGLE_ARM = new JoystickButton(DRIVER_JOYSTICK_A, 8);
     
 	/* MOTOR SPEEDS */
@@ -70,6 +72,8 @@ public class RobotMap {
 	public static final int PCM_ID_DRIVER = 0;
 	public static final int HIGH_GEAR = 2;
 	public static final int LOW_GEAR = 3;
+	public static final int GEAR_IN = 4;
+	public static final int GEAR_OUT = 5;
 	public static final int PCM_ID = 0; 
 	public static final int SOLENOID_ARM_UP = 0;
     public static final int SOLENOID_ARM_DOWN = 1;
