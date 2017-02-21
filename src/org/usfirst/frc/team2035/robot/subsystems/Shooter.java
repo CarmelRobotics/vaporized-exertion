@@ -27,7 +27,7 @@ public class Shooter extends Subsystem {
 	private double d;
 	
 	public static boolean targeted;
-	public static boolean manual = false;
+	public static boolean manual = true;
 	
 	public Shooter() {
 		super("Shooter");

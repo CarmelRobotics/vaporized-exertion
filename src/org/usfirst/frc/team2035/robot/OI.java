@@ -51,7 +51,9 @@ public class OI {
 	private static Button shiftGear;
 	public static Button ballIn;
 	public static Button ballOut;
-	private static Button toggleArm; 
+	private static Button toggleArm;
+	private static Button shoot;
+	private static Button reverseShoot;
 	//private static Button armStop;
 	
 	//init the oi's
@@ -65,6 +67,8 @@ public class OI {
 		ballIn = RobotMap.BALL_IN;
 		ballOut = RobotMap.BALL_OUT;
 		toggleArm = RobotMap.TOGGLE_ARM;
+		shoot = RobotMap.SHOOT;
+		reverseShoot = RobotMap.REVERSE_SHOOT;
 		//spinStop  = RobotMap.SPIN_STOP;
 		//armUp = RobotMap.ARM_UP;
 		//armDown = RobotMap.ARM_DOWN;
@@ -75,6 +79,8 @@ public class OI {
 		ballIn.whileHeld(new BallIntake());
 		ballOut.whileHeld(new BallOutake());
 		toggleArm.whenPressed(new ToggleArm());
+		shoot.whileHeld(new Shoot());
+		reverseShoot.whileHeld(new ReverseShoot());
 		//spinStop.whenPressed(new SpinStop());
 		
 		//armUp.whileHeld(new ArmUp());

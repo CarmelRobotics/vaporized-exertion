@@ -17,7 +17,10 @@ public class Shoot extends Command {
 	
 	@Override
 	protected void execute() {
-		shooter.shoot();
+		if(Shooter.manual) {
+			shooter.shoot();
+		}
+		
 	}
 	
 	 

@@ -56,7 +56,7 @@ public class RobotMap {
 	public static final JoystickButton BALL_IN = new JoystickButton(DRIVER_JOYSTICK_A,3);
 	//public static final JoystickButton STOP = new JoystickButton(DRIVER_JOYSTICK_A,6);
 	public static final JoystickButton SHOOT = new JoystickButton(DRIVER_JOYSTICK_A,6);
-	public static final JoystickButton REVERSE_SHOOT = new JoystickButton
+	public static final JoystickButton REVERSE_SHOOT = new JoystickButton(DRIVER_JOYSTICK_A, 7);
     public static final JoystickButton TOGGLE_ARM = new JoystickButton(DRIVER_JOYSTICK_A, 8);
     
 	/* MOTOR SPEEDS */
