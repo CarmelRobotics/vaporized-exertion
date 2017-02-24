@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.usfirst.frc.team2035.robot.subsystems.MaxbotixUltrasonic;
 import java.lang.Math;
+import org.usfirst.frc.team2035.robot.Robot;
 
 import org.usfirst.frc.team2035.robot.RobotMap;
 

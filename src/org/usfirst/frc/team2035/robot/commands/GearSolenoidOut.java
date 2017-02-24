@@ -5,9 +5,8 @@
 /*----------------------------------------------------------------------------*/
 package org.usfirst.frc.team2035.robot.commands;
 
-import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
-
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team2035.robot.subsystems.GearSystem;
 
 import org.usfirst.frc.team2035.robot.OI;
 import org.usfirst.frc.team2035.robot.Robot;
@@ -24,36 +23,35 @@ public class GearSolenoidOut extends Command {
 
     public GearSolenoidOut() {
     	super("GearSystem");
-    	train = Robot.getGearSystem();
+    	gearSystem = Robot.getGearSystem();
     	requires(gearSystem);
     
     }
-     
- 
-// Called just before this Command runs the first time
-	@Override
-	protected void initialize() {
-		oi = new OI();
-	}
+ // Called just before this Command runs the first time
+ 	@Override
+ 	protected void initialize() {
+ 		oi = new OI();
+ 	}
+    
     protected void execute() {
     
-    	gearSystem.setGearSolenoidForward();
-    }
+    	gearSystem.gearSolenoidSetForward();
     
+    }
+      
     protected boolean isFinished() {
     	return false;
     }
+    
  // Called once after isFinished returns true
-  	@Override
-  	protected void end() {
-  		gearSystem.GearSolenoidStop();
-  	}
+ 	@Override
+ 	protected void end() {
+ 		gearSystem.GearSolenoidStop();
+ 	} 
      
-  // Called when another command which requires one or more of the same
-  	// subsystems is scheduled to run
-  	@Override
-  	protected void interrupted() {
-  		gearSystem.GearSolenoidStop();
-  	}
-  }
-}
+ // Called when another command which requires one or more of the same
+ 	// subsystems is scheduled to run
+ 	@Override
+ 	protected void interrupted() {
+ 	}
+ }

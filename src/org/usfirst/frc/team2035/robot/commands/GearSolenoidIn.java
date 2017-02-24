@@ -5,9 +5,8 @@
 /*----------------------------------------------------------------------------*/
 package org.usfirst.frc.team2035.robot.commands;
 
-import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
-
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team2035.robot.subsystems.GearSystem;
 
 import org.usfirst.frc.team2035.robot.OI;
 import org.usfirst.frc.team2035.robot.Robot;
@@ -24,7 +23,7 @@ public class GearSolenoidIn extends Command {
 
     public GearSolenoidIn() {
     	super("GearSystem");
-    	train = Robot.getGearSystem();
+    	gearSystem = Robot.getGearSystem();
     	requires(gearSystem);
     
     }
@@ -36,7 +35,7 @@ public class GearSolenoidIn extends Command {
     
     protected void execute() {
     
-    	gearSystem.setGearSolenoidReverse();
+    	gearSystem.gearSolenoidSetReverse();
     
     }
       
@@ -56,4 +55,3 @@ public class GearSolenoidIn extends Command {
  	protected void interrupted() {
  	}
  }
-}

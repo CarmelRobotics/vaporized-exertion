@@ -36,6 +36,7 @@ public class Robot extends IterativeRobot {
 	public static NewElevator nlift;
 	public static BallSucker bs;
 	public static ACompressor compressor;
+	public static GearSystem gearSystem;
 	
 	public static DriverStation.Alliance alliance;
 	public static CameraServer server;
@@ -64,6 +65,7 @@ public class Robot extends IterativeRobot {
 		hanger = new Hanger();
 		nlift = new NewElevator();
 		bs = new BallSucker();
+		gearSystem = new GearSystem();
 		driver.shiftHighGear();
 		server = CameraServer.getInstance();
 		//server.setQuality(50);
@@ -220,5 +222,8 @@ public class Robot extends IterativeRobot {
 	}
 	public static LEDConnection getLEDConnection() {
 		return leds;
+	}
+	public static GearSystem getGearSystem() {
+		return gearSystem;
 	}
 }
