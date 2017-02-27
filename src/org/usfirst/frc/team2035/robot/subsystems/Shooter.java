@@ -98,7 +98,7 @@ public class Shooter extends Subsystem {
 	 * @return Target angle for the eyelid (degrees)
 	 */
 	public double findEyelidAngle() {
-		double g = .098;
+		double g = .0988;
 		double x = 0.0;
 		double v = 0.0;
 		double y = Robot.getUltrasonic().getRangeInCM();
@@ -203,7 +203,7 @@ public class Shooter extends Subsystem {
 	 * Receives an angle from the Rasberry Pi on the "angle" thread of the NetworkTable
 	 */
 	public String receiveAngle() {
-		String angle = table.getString("angle", "me hoy minoy");
+		String angle = table.getString("angle", "999");
 		System.out.println(angle);
 		return angle;
 	}
@@ -222,19 +222,19 @@ public class Shooter extends Subsystem {
 		double angle = Double.parseDouble(receiveAngle()); //custom, eventually set to receiveAngle()
 		//double angle2gedi = Double.parseDouble(receiveAngle());
 		double point = angle/360;
-		double current = (turret.getEncPosition())/4096); //current encoder position in rotations (not ticks)
+		double current = ((turret.getEncPosition())/4096); //current encoder position in rotations (not ticks)
 		point = point + current; //adds the current position (in rotations) to "zero" the shooter
 		
 		//Does not allow the shooter to turn more than 90 degrees in either direction.
 		//Check to keep motor from overturning and harming mechanics without a limit switch
 		if(point > .24) {
 			point = .24;
-			turret.setEncPosition((int)(.24*4096))
+			turret.setEncPosition((int)(.24*4096));
 			return point;
 		}
 		else if(point < -.24) {
 			point = -.24;
-			turret.setEncPosition((int)(-.24*4096))
+			turret.setEncPosition((int)(-.24*4096));
 			return point;
 		}
 		return point;

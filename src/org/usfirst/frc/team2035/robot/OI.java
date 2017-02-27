@@ -43,83 +43,42 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
-	
-	
-	public static final int OUR_MOTOR_PWM = 0;
+	 
 	
 	public static Button hangerSpin;
 	private static Button shiftGear;
 	public static Button ballIn;
 	public static Button ballOut;
 	private static Button toggleArm;
+	private static Button toggleVision;
 	private static Button shoot;
 	private static Button reverseShoot;
-	//private static Button armStop;
-	
-	//init the oi's
-	
-	
+	private static Button turretLeft;
+	private static Button turretRight;
+
 	public static void initialize() {
-	
 	
 		hangerSpin = RobotMap.HANGERBUTTON_FORWARD;
 		shiftGear = RobotMap.SHIFT_GEAR;
 		ballIn = RobotMap.BALL_IN;
 		ballOut = RobotMap.BALL_OUT;
 		toggleArm = RobotMap.TOGGLE_ARM;
+		toggleVision = RobotMap.TOGGLE_VISION;
 		shoot = RobotMap.SHOOT;
 		reverseShoot = RobotMap.REVERSE_SHOOT;
-		//spinStop  = RobotMap.SPIN_STOP;
-		//armUp = RobotMap.ARM_UP;
-		//armDown = RobotMap.ARM_DOWN;
-		//armStop = RobotMap.ARM_STOP;
+		turretLeft = RobotMap.TURRET_LEFT;
+		turretRight = RobotMap.TURRET_RIGHT;
 	
 		hangerSpin.whileHeld(new HangerSpin());
 		shiftGear.whileHeld(new ShiftLowGear());
 		ballIn.whileHeld(new BallIntake());
 		ballOut.whileHeld(new BallOutake());
 		toggleArm.whenPressed(new ToggleArm());
+		toggleVision.whenPressed(new ToggleVision());
 		shoot.whileHeld(new Shoot());
 		reverseShoot.whileHeld(new ReverseShoot());
-		//spinStop.whenPressed(new SpinStop());
-		
-		//armUp.whileHeld(new ArmUp());
-		//armDown.whileHeld(new ArmDown());
-		//armStop.whenPressed(new ArmStop());
-		
-//	private static Button forwards;
-//	private static Button backwards;
-//	private static Button stop;
-//	private static Button getDistance;
-//	private static Button turretForward;
-//	private static Button turretBackwards;
-//	private static Button turretStop;
-//	private static Button targetTurret;
-//	private static Button getCount;
-//	
-//	public static void initialize() {
-//		forwards = RobotMap.FORWARDS;
-//		backwards = RobotMap.BACKWARDS;
-//		stop = RobotMap.STOP;
-//		getDistance = RobotMap.GET_DISTANCE;
-//		turretForward = RobotMap.TALON_FORWARD;
-//		turretBackwards = RobotMap.TALON_BACKWARDS;
-//		turretStop = RobotMap.TALON_STOP;
-//		targetTurret = RobotMap.TARGET_TURRET;
-//		getCount = RobotMap.GET_COUNT;
-//		
-//		forwards.whileHeld(new MotorForward());
-//		backwards.whileHeld(new MotorBackward());
-//		stop.whileHeld(new MotorStop());
-//		getDistance.whileHeld(new GetUltraValues());
-//		turretForward.whileHeld(new MoveTurret());
-//		turretBackwards.whileHeld(new MoveTurretNegative());
-//		turretStop.whileHeld(new MoveTurretStop());
-//		targetTurret.whenPressed(new TargetTurret());
-//		getCount.whileHeld(new GetNetworkTableValue());
-//		
-//	
-//		
+		turretLeft.whileHeld(new TurretLeft());
+		turretRight.whileHeld(new TurretRight());
 		
 	}
 }

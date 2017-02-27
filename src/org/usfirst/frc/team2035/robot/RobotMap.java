@@ -42,22 +42,19 @@ public class RobotMap {
      * Joysticks
      */
     public static final int JOYSTICK_A_USB_NUMBER = 0;
-    public static final Joystick DRIVER_JOYSTICK_A = new Joystick(JOYSTICK_A_USB_NUMBER);
-    public static final int JOYSTICK_B_USB_NUMBER = 1;
-    public static final Joystick DRIVER_JOYSTICK_B = new Joystick(JOYSTICK_B_USB_NUMBER);
+    public static final Joystick JOYSTICK1 = new Joystick(JOYSTICK_A_USB_NUMBER);
+    
     /* Joystick buttons */
-    public static final JoystickButton SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK_A, 1);
-    //public static final JoystickButton GEAR_OUT = new JoystickButton(DRIVER_JOYSTICK_B, 6);
-    //public static final JoystickButton PISTON_PUSH = new JoystickButton(DRIVER_JOYSTICK_A, 4);
-    //public static final JoystickButton SHIFT_LOW_TEST = new JoystickButton(DRIVER_JOYSTICK_A, 8);
-	//public static final JoystickButton SHIFT_HIGH_TEST = new JoystickButton(DRIVER_JOYSTICK_A, 9);
-	public static final JoystickButton HANGERBUTTON_FORWARD = new JoystickButton(DRIVER_JOYSTICK_A,10);
-	public static final JoystickButton BALL_OUT = new JoystickButton(DRIVER_JOYSTICK_A,2);
-	public static final JoystickButton BALL_IN = new JoystickButton(DRIVER_JOYSTICK_A,3);
-	//public static final JoystickButton STOP = new JoystickButton(DRIVER_JOYSTICK_A,6);
-	public static final JoystickButton SHOOT = new JoystickButton(DRIVER_JOYSTICK_A,6);
-	public static final JoystickButton REVERSE_SHOOT = new JoystickButton(DRIVER_JOYSTICK_A, 7);
-    public static final JoystickButton TOGGLE_ARM = new JoystickButton(DRIVER_JOYSTICK_A, 8);
+    public static final JoystickButton SHIFT_GEAR = new JoystickButton(JOYSTICK1, 1);
+	public static final JoystickButton BALL_OUT = new JoystickButton(JOYSTICK1,2);
+	public static final JoystickButton BALL_IN = new JoystickButton(JOYSTICK1,3);
+	public static final JoystickButton TURRET_LEFT = new JoystickButton(JOYSTICK1, 4);
+	public static final JoystickButton TURRET_RIGHT = new JoystickButton(JOYSTICK1, 5);
+	public static final JoystickButton SHOOT = new JoystickButton(JOYSTICK1,6);
+	public static final JoystickButton REVERSE_SHOOT = new JoystickButton(JOYSTICK1, 7);
+    public static final JoystickButton TOGGLE_ARM = new JoystickButton(JOYSTICK1, 8);
+    public static final JoystickButton TOGGLE_VISION = new JoystickButton(JOYSTICK1, 9);
+    public static final JoystickButton HANGERBUTTON_FORWARD = new JoystickButton(JOYSTICK1,10);
     
 	/* MOTOR SPEEDS */
 	public static final double ELEVATOR_LIFT_UP = 1;

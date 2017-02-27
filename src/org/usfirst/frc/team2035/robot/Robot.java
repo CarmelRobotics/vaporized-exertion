@@ -189,6 +189,7 @@ public class Robot extends IterativeRobot {
             leds.rainbow();
             System.out.println("NO");
         }
+        shooter.targetTurret();
 
 	}
 
