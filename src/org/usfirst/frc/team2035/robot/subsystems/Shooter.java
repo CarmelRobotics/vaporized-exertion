@@ -142,31 +142,50 @@ public class Shooter extends Subsystem {
 		turret.changeControlMode(TalonControlMode.Position);
 		manual = false;
 	}
-	
+	/**
+	 * In manual mode: moves the turret to the right at half speed (stopping at 90 degrees)
+	 * In PID mode: turns the turret to the right 90 degrees from 0
+	 */
 	public void turretMoveRight() {
 		if(turret.getControlMode() == TalonControlMode.PercentVbus) {
 			turret.set(.5);
+			//Makes sure the motor stops at 90 degrees without a limit switch
+			if((turret.getEncPosition()/4096) >= .24) {
+				turret.set(0);
+			}
 		}
 		else {
 			turret.set(.24);
 		}
 	}
-	
+	/**
+	 * In manual mode: moves the turret to the left at half speed (stopping at -90 degrees)
+	 * In PID mode: turns the turret to the left -90 degrees from 0
+	 */
 	public void turretMoveLeft() {
 		if(turret.getControlMode() == TalonControlMode.PercentVbus) {
 			turret.set(-.5);
+			//Makes sure the motor stops at -90 degrees without a limit switch
+			if((turret.getEncPosition()/4096) <= -.24) {
+				turret.set(0);
+			}
 		}
 		else {
 			turret.set(-.24);
 		}
 	}
-	
+	/**
+	 * In manual mode: stops the turret motor
+	 */
 	public void manualTurretStop() {
 		if(turret.getControlMode() == TalonControlMode.PercentVbus) {
 			turret.set(0.0);
 		}
 	}
-	
+	/**
+	 * In PID mode: If no angle is received from the Raspberry Pi, the turret turns to the right and then the left until and angle is found
+	 * Then based on the angle, the setpoint is calculated and the motor turns to that position
+	 */
 	public void targetTurret() {
 		while(Double.parseDouble(receiveAngle()) == 999) {
 			double currentPos = (turret.getEncPosition()/4096);
@@ -180,7 +199,9 @@ public class Shooter extends Subsystem {
 		turret.set(calculateSetPoint());
 		System.out.println(calculateSetPoint());
 	}
-	
+	/**
+	 * Receives an angle from the Rasberry Pi on the "angle" thread of the NetworkTable
+	 */
 	public String receiveAngle() {
 		String angle = table.getString("angle", "me hoy minoy");
 		System.out.println(angle);
@@ -191,18 +212,29 @@ public class Shooter extends Subsystem {
 		String count = table.getString("number", "howdy");
 		System.out.println(count);
 	}
-	 
+	/**
+	* Calculates the correct encoder position (in rotations) by dividing the angle in degrees by 360 and adding the current position.
+	* If the position exceeds 90 degrees in either direction, the setpoint will be set slightly before to avoid overtaxing the motor.
+	* For ensured accuracy, the encoder is recalibrated at that position.
+	*/
 	public double calculateSetPoint() {
 		//turn degrees into fraction of rotation
 		double angle = Double.parseDouble(receiveAngle()); //custom, eventually set to receiveAngle()
 		//double angle2gedi = Double.parseDouble(receiveAngle());
 		double point = angle/360;
-		if(point > .5) {
-			point = .5;
+		double current = (turret.getEncPosition())/4096); //current encoder position in rotations (not ticks)
+		point = point + current; //adds the current position (in rotations) to "zero" the shooter
+		
+		//Does not allow the shooter to turn more than 90 degrees in either direction.
+		//Check to keep motor from overturning and harming mechanics without a limit switch
+		if(point > .24) {
+			point = .24;
+			turret.setEncPosition((int)(.24*4096))
 			return point;
 		}
-		else if(point < -.5) {
-			point = -.5;
+		else if(point < -.24) {
+			point = -.24;
+			turret.setEncPosition((int)(-.24*4096))
 			return point;
 		}
 		return point;
