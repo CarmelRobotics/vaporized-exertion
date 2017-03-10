@@ -29,7 +29,10 @@ public class GearSolenoidIn extends Command {
     	requires(gearSystem);
     
     }
- // Called just before this Command runs the first time
+    
+    /**
+	 * Called just before this Command runs the first time
+	 */
  	@Override
  	protected void initialize() {
  		oi = new OI();

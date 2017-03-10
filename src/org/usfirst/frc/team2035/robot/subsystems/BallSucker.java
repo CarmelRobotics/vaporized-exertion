@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 public class BallSucker extends Subsystem{
-	/**
+	/*
 	 * DISCLAIMER!!!!
 	 * The arm movement commands are now using solenoids, change back to motors by commenting/uncommenting respective lines. The spin methods are good as is.
 	 * Check in all the Arm classes.
@@ -37,7 +37,6 @@ public class BallSucker extends Subsystem{
 	}
 	/**
 	 * Method to move ballsucker rod in 
-	 * @return void
 	 */
 	public void spinIn() {
 		rod.set(1.0);

@@ -30,7 +30,9 @@ public class ShiftLowGear extends Command {
     	requires(train);
     	System.out.println("construct");
     }
-    
+    /**
+	 * Called just before this Command runs the first time
+	 */
     protected void initialize() {
     	System.out.println("Init");
     	oi = new OI();

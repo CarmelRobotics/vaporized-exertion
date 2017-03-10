@@ -15,9 +15,6 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.CameraServer;
-import java.io.PrintWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
 import org.usfirst.frc.team2035.robot.subsystems.*;
 import org.usfirst.frc.team2035.robot.commands.*;
 
@@ -30,25 +27,22 @@ import org.usfirst.frc.team2035.robot.commands.*;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-
-	public static MaxbotixUltrasonic ultraSonic;
-	public static Shooter shooter;
-	public static LEDConnection leds;
-	public static DriverStation driverStation;
-	public static OI oi;
-
+	//Subsystems
 	public static DriveTrain driver;
 	public static Hanger hanger;
-	public static NewElevator nlift;
+	public static Elevator nlift;
 	public static BallSucker bs;
 	public static ACompressor compressor;
 	public static GearSystem gearSystem;
+	public static MaxbotixUltrasonic ultraSonic;
+	public static Shooter shooter;
+	public static LEDConnection leds;
 	
+	public static DriverStation driverStation;
+	public static OI oi;
 	public static DriverStation.Alliance alliance;
 	public static CameraServer server;
 	public static GetUltraValues ultraValues = new GetUltraValues();
-	public static File file = new File("src/org/usfirst/frc/team2035/robot/ultrasonic_data.txt");
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -60,25 +54,29 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
+		
+		//Initialize Subsystems
 		ultraSonic = new MaxbotixUltrasonic(RobotMap.ULTRASONIC_ANALOG);
 		shooter = new Shooter();
 		leds = new LEDConnection();
-		driverStation = DriverStation.getInstance();
-		chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
 		compressor = new ACompressor();
 		driver = new DriveTrain();
 		hanger = new Hanger();
-		nlift = new NewElevator();
+		nlift = new Elevator();
 		bs = new BallSucker();
 		gearSystem = new GearSystem();
-		driver.shiftHighGear();
+		
+		driverStation = DriverStation.getInstance();
+		chooser.addDefault("Default Auto", new Auto1Red());
+		// chooser.addObject("My Auto", new MyAutoCommand());
+		SmartDashboard.putData("Auto mode", chooser);
+		
 		server = CameraServer.getInstance();
-		//server.setQuality(50);
 		server.startAutomaticCapture();
+		
 		OI.initialize();
 		alliance = driverStation.getAlliance();
+		driver.shiftHighGear();
 	}
 
 	/**
@@ -91,10 +89,12 @@ public class Robot extends IterativeRobot {
 		shooter.goToZero();
 	}
 
+	/**
+	 * This function is called repeatedly when the robot is in Disabled mode.
+	 */
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
-		
 	}
 
 	/**
@@ -111,7 +111,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		//autonomousCommand = chooser.getSelected();
-
 		
 		 String autoSelected = SmartDashboard.getString("Auto Selector", "Default"); 
 		 switch(autoSelected) { 
@@ -145,7 +144,6 @@ public class Robot extends IterativeRobot {
 	 			break; 
 		 }
 		 
-
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
 			autonomousCommand.start();
@@ -157,11 +155,11 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-
-		
-		
 	}
 
+	/**
+	 * This function is called once when the robot enters Teleop mode
+	 */
 	@Override
 	public void teleopInit() {
 		// This makes sure that the autonomous stops running when
@@ -173,7 +171,6 @@ public class Robot extends IterativeRobot {
 		
 		compressor.start();
 		shooter.switchToManual();
-
 	}
 
 	/**
@@ -184,24 +181,10 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		
 		driver.arcadeDrive();
-		
-		
         //System.out.println("Encoder Position: " + shooter.getEncPosition());
 		//System.out.println(shooter.getEncPosition());
 		System.out.println("Right Limit: " + RobotMap.ROTATIONS_RIGHT);
 		System.out.println("Left Limit: " + RobotMap.ROTATIONS_LEFT);
-        if (alliance == DriverStation.Alliance.Red) {
-        	//System.out.println("RED");
-            leds.red();
-        } else if (alliance == DriverStation.Alliance.Blue) {
-            leds.blue();
-            //System.out.println("BLUE");
-        } else {
-            leds.rainbow();
-            //System.out.println("NO");
-        }
-        //shooter.targetTurret();
-
 	}
 
 	/**
@@ -211,30 +194,62 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic() {
 		LiveWindow.run();
 	}
+	
+	//Getter methods for each subsystem
+	/**
+	 * Gets the Ultrasonic subsystem
+	 * @return ultrasonic subsystem
+	 */
 	public static MaxbotixUltrasonic getUltrasonic() {
 		return ultraSonic;
 	}
+	/**
+	 * Gets the DriveTrain subsystem
+	 * @return DriveTrain subsystem
+	 */
     public static DriveTrain getDriveTrain() {
     	return driver;
     }
+    /**
+	 * Gets the Hanger subsystem
+	 * @return Hanger subsystem
+	 */
     public static Hanger getHanger() {	
 		return hanger;
 	}
-    public static NewElevator getNewElevator()
+    /**
+	 * Gets the Elevator subsystem
+	 * @return Elevator subsystem
+	 */
+    public static Elevator getElevator()
 	{
 		return nlift;
-		
 	}
+    /**
+	 * Gets the BallSucker subsystem
+	 * @return BallSucker subsystem
+	 */
     public static BallSucker getBallSucker(){
 		return bs;
 	}
-	
+    /**
+	 * Gets the Shooter subsystem
+	 * @return Shooter subsystem
+	 */
 	public static Shooter getShooter() {
 		return shooter;
 	}
+	/**
+	 * Gets the LEDConnection subsystem
+	 * @return LEDConnection subsystem
+	 */
 	public static LEDConnection getLEDConnection() {
 		return leds;
 	}
+	/**
+	 * Gets the GearSystem subsystem
+	 * @return GearSystem subsystem
+	 */
 	public static GearSystem getGearSystem() {
 		return gearSystem;
 	}

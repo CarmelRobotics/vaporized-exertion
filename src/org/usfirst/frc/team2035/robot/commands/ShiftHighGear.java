@@ -30,7 +30,9 @@ public class ShiftHighGear extends Command {
     	requires(train);
     	//System.out.println("HighButtonPressed");
     }
-    
+    /**
+	 * Called just before this Command runs the first time
+	 */
     protected void initialize() {
        	//System.out.println("HighButtonPressed");
         train.shiftHighGear();

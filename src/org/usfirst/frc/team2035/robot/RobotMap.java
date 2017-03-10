@@ -99,6 +99,9 @@ public class RobotMap {
 	public static final int WHEEL_BASE = 24; //inches
 	public static final double HIGH_VELOCITY = 15; //feet per second
 	
+	/*
+	 * CONVERSION FACTORS
+	 */
 	public static final double ONE_EIGHTY = 104; //104 gear grooves in 180 degrees
 	public static final double DEGREES_PER_GROOVE = 180/104; //degrees per each gear tick
 	public static final double DEGREES_RIGHT = 54*DEGREES_PER_GROOVE;
@@ -108,17 +111,6 @@ public class RobotMap {
 	public static final double ROTATIONS_LEFT = -(35/15);
 	//public static final double ROTATIONS_RIGHT = (DEGREES_RIGHT/DEGREES_PER_ROTATION)-.5;
 	//public static final double ROTATIONS_LEFT = -(DEGREES_LEFT/DEGREES_PER_ROTATION)+.5;
-	 
-	
+		
 }
 
-	//public static final JoystickButton STOP = new JoystickButton(JOYSTICK, 4);
-	//public static final JoystickButton FORWARDS = new JoystickButton(JOYSTICK, 2);
-	//public static final JoystickButton BACKWARDS = new JoystickButton(JOYSTICK, 3);
-	//public static final JoystickButton GET_DISTANCE = new JoystickButton(JOYSTICK, 1);
-	
-	//public static final JoystickButton TALON_FORWARD = new JoystickButton(JOYSTICK, 6);
-	//public static final JoystickButton TALON_BACKWARDS = new JoystickButton(JOYSTICK, 7);
-	//public static final JoystickButton TALON_STOP = new JoystickButton(JOYSTICK, 8);
-	//public static final JoystickButton TARGET_TURRET = new JoystickButton(JOYSTICK, 9);
-	//public static final JoystickButton GET_COUNT = new JoystickButton(JOYSTICK, 10);

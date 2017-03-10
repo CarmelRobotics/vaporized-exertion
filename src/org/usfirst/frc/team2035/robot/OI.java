@@ -9,12 +9,8 @@ package org.usfirst.frc.team2035.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import org.usfirst.frc.team2035.robot.RobotMap;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2035.robot.commands.HangerSpin;
-
 import org.usfirst.frc.team2035.robot.subsystems.*;
 import org.usfirst.frc.team2035.robot.commands.*;
 

@@ -24,7 +24,9 @@ public class ToggleArm extends Command {
 		bs = Robot.getBallSucker();
 	}
 
-	// Called just before this Command runs the first time
+	/**
+	 * Called just before this Command runs the first time
+	 */
 	@Override
 	protected void initialize() {
 		oi = new OI();

@@ -15,7 +15,7 @@ import org.usfirst.frc.team2035.robot.OI;
 import edu.wpi.first.wpilibj.Timer;
 
 /**
- *
+ * Autonomous to drive forward and place a gear on the hook while on the RED ALLIANCE
  */
 public class Auto1Red extends Command {
 	
@@ -25,6 +25,9 @@ public class Auto1Red extends Command {
 	public static OI oi;
 	private Timer autoTimer;
 	
+	/**
+	 * Creates a new Auto1Red command
+	 */
 	public Auto1Red() {
 		super("Autonomous 1 Red");
 		driver = Robot.getDriveTrain();
@@ -34,16 +37,18 @@ public class Auto1Red extends Command {
 		requires(driver);
 	}
 
-	// Called just before this Command runs the first time
+	/**
+	 * Called just before this Command runs the first time
+	 */
 	@Override
 	protected void initialize() {
 		oi = new OI();
 		autoTimer = new Timer();
-		
-		
 	}
 
-	// Called repeatedly when this Command is scheduled to run
+	/**
+	 * Called repeatedly when this Command is scheduled to run
+	 */
 	@Override
 	protected void execute() {
 		autoTimer.start();
@@ -65,19 +70,25 @@ public class Auto1Red extends Command {
 		
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
+	/**
+	 * Make this true because autonomous only runs once
+	 * @return true
+	 */
 	@Override
 	protected boolean isFinished() {
 		return true;
 	}
 
-	// Called once after isFinished returns true
+	/**
+	 * Called once after isFinished returns true
+	 */
 	@Override
 	protected void end() {
 	}
 
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
+	/**
+	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 */
 	@Override
 	protected void interrupted() {
 	}

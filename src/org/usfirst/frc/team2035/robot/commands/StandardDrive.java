@@ -30,7 +30,9 @@ public class StandardDrive extends Command {
         DRIVE = d;
     }
     
- // Called just before this Command runs the first time
+    /**
+	 * Called just before this Command runs the first time
+	 */
     protected void initialize() {
         //DriveTrain.getCommandLog().setCommand(this.getName());
     	oi = new OI();

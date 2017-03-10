@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.Victor;
 /**
  *
  */
-public class NewElevator extends Subsystem {
+public class Elevator extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 	
@@ -28,7 +28,7 @@ public class NewElevator extends Subsystem {
 	private VictorSP speedControl;
 		
 
-	public NewElevator()
+	public Elevator()
 	{
 		super("Elevator");
 		/*I am assuming two motors for the elevator. one for the front. One for the back.*/

@@ -10,22 +10,28 @@ package org.usfirst.frc.team2035.robot.commands;
 import org.usfirst.frc.team2035.robot.OI;
 import org.usfirst.frc.team2035.robot.Robot;
 import org.usfirst.frc.team2035.robot.subsystems.BallSucker;
-import org.usfirst.frc.team2035.robot.subsystems.NewElevator;
+import org.usfirst.frc.team2035.robot.subsystems.Elevator;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class BallIntake extends Command{ 
+/**
+ * Command to intake balls from off the ground
+ */
+public class BallIntake extends Command { 
 
 	public static OI oi;
 	private final BallSucker bs;
-	private final NewElevator el;
+	private final Elevator el;
+	
+	/**
+	 * Creates a new BallIntake command
+	 */
 	public BallIntake(){
 		super("Spin In");
-		
-		
 		bs = Robot.getBallSucker();
-		el = Robot.getNewElevator();
+		el = Robot.getElevator();
 		requires(bs);
 	}
+	
 	
 	@Override
 	protected void execute() {
@@ -41,7 +47,9 @@ public class BallIntake extends Command{
 	}
 
 	
-
+	/**
+	 * Called just before this Command runs the first time
+	 */
 	@Override
 	protected void initialize() {
 		oi = new OI();
