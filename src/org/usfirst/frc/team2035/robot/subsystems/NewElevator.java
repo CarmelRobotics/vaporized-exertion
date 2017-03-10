@@ -19,7 +19,6 @@ public class NewElevator extends Subsystem {
 	
 	private Joystick stick;
 	private VictorSP speedControl;
-	private DoubleSolenoid doubSol;
 		
 
 	public NewElevator()
@@ -28,11 +27,6 @@ public class NewElevator extends Subsystem {
 		/*I am assuming two motors for the elevator. one for the front. One for the back.*/
 	
 		speedControl = new VictorSP(RobotMap.LIFT_MOTOR_PWM);
-		
-		
-		//Declare PWMS
-		doubSol = new DoubleSolenoid(0, 0, 0);
-		
 	}
 	
 	public void liftElevator() {
@@ -45,17 +39,7 @@ public class NewElevator extends Subsystem {
 		
 	}
 	
-	
-	public void gearSolenoidSetForward() {
-		
-		doubSol.set(DoubleSolenoid.Value.kForward);
-	}
 
-	public void gearSolenoidSetReverse() {
-	doubSol.set(DoubleSolenoid.Value.kReverse);
-	}
-	
-	
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub

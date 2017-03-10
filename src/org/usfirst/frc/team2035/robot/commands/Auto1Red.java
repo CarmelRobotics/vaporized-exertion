@@ -15,6 +15,7 @@ public class Auto1Red extends Command {
 	
 	private DriveTrain driver;
 	private Shooter shooter;
+	private BallSucker bs;
 	public static OI oi;
 	private Timer autoTimer;
 	
@@ -22,6 +23,7 @@ public class Auto1Red extends Command {
 		super("Autonomous 1 Red");
 		driver = Robot.getDriveTrain();
 		shooter = Robot.getShooter();
+		bs = Robot.getBallSucker();
 		
 		requires(driver);
 	}
@@ -39,6 +41,7 @@ public class Auto1Red extends Command {
 	@Override
 	protected void execute() {
 		autoTimer.start();
+		bs.armDown();
 		//shooter.moveEyelid(45);
 		//shooter.switchToPID();
 		//shooter.turretMoveRight();
@@ -48,8 +51,8 @@ public class Auto1Red extends Command {
 		//}
 		//shooter.stopShoot();
 		double currentTime = autoTimer.get();
-		while(autoTimer.get() <= (currentTime + 4)) {
-			driver.drive(-.25);
+		while(autoTimer.get() <= (currentTime + 1.9)) {
+			driver.drive(-.4);
 		}
 		//TODO: Add gear mechanism
 		

@@ -81,13 +81,13 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void disabledInit() {
-
+		shooter.goToZero();
 	}
 
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
-		shooter.manualTurretStop();
+		
 	}
 
 	/**
@@ -165,6 +165,7 @@ public class Robot extends IterativeRobot {
 			autonomousCommand.cancel();
 		
 		compressor.start();
+		shooter.switchToManual();
 
 	}
 
@@ -177,19 +178,22 @@ public class Robot extends IterativeRobot {
 		
 		driver.arcadeDrive();
 		
+		
         //System.out.println("Encoder Position: " + shooter.getEncPosition());
-    
+		//System.out.println(shooter.getEncPosition());
+		System.out.println("Right Limit: " + RobotMap.ROTATIONS_RIGHT);
+		System.out.println("Left Limit: " + RobotMap.ROTATIONS_LEFT);
         if (alliance == DriverStation.Alliance.Red) {
-        	System.out.println("RED");
+        	//System.out.println("RED");
             leds.red();
         } else if (alliance == DriverStation.Alliance.Blue) {
             leds.blue();
-            System.out.println("BLUE");
+            //System.out.println("BLUE");
         } else {
             leds.rainbow();
-            System.out.println("NO");
+            //System.out.println("NO");
         }
-        shooter.targetTurret();
+        //shooter.targetTurret();
 
 	}
 

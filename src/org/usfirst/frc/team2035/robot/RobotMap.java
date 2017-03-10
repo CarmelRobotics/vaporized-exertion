@@ -55,6 +55,7 @@ public class RobotMap {
     public static final JoystickButton TOGGLE_ARM = new JoystickButton(JOYSTICK1, 8);
     public static final JoystickButton TOGGLE_VISION = new JoystickButton(JOYSTICK1, 9);
     public static final JoystickButton HANGERBUTTON_FORWARD = new JoystickButton(JOYSTICK1,10);
+    public static final JoystickButton TARGET_TURRET = new JoystickButton(JOYSTICK1, 11);
     
 	/* MOTOR SPEEDS */
 	public static final double ELEVATOR_LIFT_UP = 1;
@@ -90,6 +91,17 @@ public class RobotMap {
 	public static final int TURNING_RADIUS = 15; //inches
 	public static final int WHEEL_BASE = 24; //inches
 	public static final double HIGH_VELOCITY = 15; //feet per second
+	
+	public static final double ONE_EIGHTY = 104; //104 gear grooves in 180 degrees
+	public static final double DEGREES_PER_GROOVE = 180/104; //degrees per each gear tick
+	public static final double DEGREES_RIGHT = 54*DEGREES_PER_GROOVE;
+	public static final double DEGREES_LEFT = 61*DEGREES_PER_GROOVE;
+	public static final double DEGREES_PER_ROTATION = DEGREES_PER_GROOVE*15; //degrees per rotation of the motor
+	public static final double ROTATIONS_RIGHT = 35/15;
+	public static final double ROTATIONS_LEFT = -(35/15);
+	//public static final double ROTATIONS_RIGHT = (DEGREES_RIGHT/DEGREES_PER_ROTATION)-.5;
+	//public static final double ROTATIONS_LEFT = -(DEGREES_LEFT/DEGREES_PER_ROTATION)+.5;
+	 
 	
 }
 

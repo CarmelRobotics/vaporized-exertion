@@ -23,6 +23,8 @@ public class Shooter extends Subsystem {
 	private Victor flyWheel;
 	private Victor intake;
 	private NetworkTable table;
+	private double rightLimit;
+	private double leftLimit;
 	private double p;
 	private double i;
 	private double d;
@@ -42,6 +44,8 @@ public class Shooter extends Subsystem {
 		turret = new CANTalon(RobotMap.TURRET_ID);
 		turret.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
 		turret.changeControlMode(TalonControlMode.Position);
+		rightLimit = RobotMap.ROTATIONS_RIGHT;
+		leftLimit = RobotMap.ROTATIONS_LEFT;
 		p = 2;
 		i = 0.0;
 		d = 0.0;
@@ -147,32 +151,36 @@ public class Shooter extends Subsystem {
 	 * In PID mode: turns the turret to the right 90 degrees from 0
 	 */
 	public void turretMoveRight() {
-		if(turret.getControlMode() == TalonControlMode.PercentVbus) {
-			turret.set(.5);
+		if(manual) {
+			turret.set(.25);
+			System.out.println("MANUAL");
 			//Makes sure the motor stops at 90 degrees without a limit switch
-			if((turret.getEncPosition()/4096) >= .24) {
+			if((turret.getEncPosition()/4096) >= rightLimit) {
 				turret.set(0);
 			}
 		}
-		else {
-			turret.set(.24);
-		}
+		//else {
+		//	turret.set(rightLimit);
+		//	System.out.println("PID");
+		//}
 	}
 	/**
 	 * In manual mode: moves the turret to the left at half speed (stopping at -90 degrees)
 	 * In PID mode: turns the turret to the left -90 degrees from 0
 	 */
 	public void turretMoveLeft() {
-		if(turret.getControlMode() == TalonControlMode.PercentVbus) {
-			turret.set(-.5);
+		if(manual) {
+			
+			turret.set(-.25);
 			//Makes sure the motor stops at -90 degrees without a limit switch
-			if((turret.getEncPosition()/4096) <= -.24) {
+			if((turret.getEncPosition()/4096) <= leftLimit) {
 				turret.set(0);
 			}
 		}
-		else {
-			turret.set(-.24);
-		}
+		//else {
+		//	turret.set(leftLimit);
+		//	System.out.println("PID");
+		//}
 	}
 	/**
 	 * In manual mode: stops the turret motor
@@ -182,12 +190,16 @@ public class Shooter extends Subsystem {
 			turret.set(0.0);
 		}
 	}
+	public void goToZero() {
+		switchToPID();
+		turret.set(0);
+	}
 	/**
 	 * In PID mode: If no angle is received from the Raspberry Pi, the turret turns to the right and then the left until and angle is found
 	 * Then based on the angle, the setpoint is calculated and the motor turns to that position
 	 */
 	public void targetTurret() {
-		while(Double.parseDouble(receiveAngle()) == 999) {
+		while(receiveAngle() == 999) {
 			double currentPos = (turret.getEncPosition()/4096);
 			if(turret.getEncPosition() < (4096*.2)) {
 				turret.set(currentPos+.05);
@@ -202,8 +214,8 @@ public class Shooter extends Subsystem {
 	/**
 	 * Receives an angle from the Rasberry Pi on the "angle" thread of the NetworkTable
 	 */
-	public String receiveAngle() {
-		String angle = table.getString("angle", "999");
+	public double receiveAngle() {
+		double angle = table.getNumber("angle", 999);
 		System.out.println(angle);
 		return angle;
 	}
@@ -219,34 +231,30 @@ public class Shooter extends Subsystem {
 	*/
 	public double calculateSetPoint() {
 		//turn degrees into fraction of rotation
-		double angle = Double.parseDouble(receiveAngle()); //custom, eventually set to receiveAngle()
+		double angle = receiveAngle(); //custom, eventually set to receiveAngle()
 		//double angle2gedi = Double.parseDouble(receiveAngle());
-		double point = angle/360;
+		double rotations = angle/(RobotMap.DEGREES_PER_ROTATION);
+		double point = rotations*4096;
 		double current = ((turret.getEncPosition())/4096); //current encoder position in rotations (not ticks)
 		point = point + current; //adds the current position (in rotations) to "zero" the shooter
 		
 		//Does not allow the shooter to turn more than 90 degrees in either direction.
 		//Check to keep motor from overturning and harming mechanics without a limit switch
-		if(point > .24) {
-			point = .24;
-			turret.setEncPosition((int)(.24*4096));
+		if(point > rightLimit) {
+			point = rightLimit;
+			turret.setEncPosition((int)(rightLimit*4096));
 			return point;
 		}
-		else if(point < -.24) {
-			point = -.24;
-			turret.setEncPosition((int)(-.24*4096));
+		else if(point < leftLimit) {
+			point = leftLimit;
+			turret.setEncPosition((int)(leftLimit*4096));
 			return point;
 		}
 		return point;
 		
 	}
-	
 	public int getEncPosition() {
-		int encPos = turret.getEncPosition();
-		if (encPos == 4096) {
-			turret.setEncPosition(0);
-		}
-		return encPos;
+		return turret.getEncPosition();
 	}
 	public void setEncPosition(int encPos) {
 		turret.setEncPosition(encPos);
@@ -254,16 +262,19 @@ public class Shooter extends Subsystem {
 	
 	//SHOOT
 	public void shoot() {
-		intakeIn();
+		
 		spinFlywheelForwards();
+		intakeIn();
 	}
 	public void stopShoot() {
-		intakeStop();
+		
 		stopFlywheel();
+		intakeStop();
 	}
 	public void reverseShoot() {
-		intakeOut();
+		
 		spinFlywheelBackwards();
+		intakeOut();
 	}
 	
 

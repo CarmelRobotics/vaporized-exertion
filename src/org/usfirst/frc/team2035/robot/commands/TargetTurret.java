@@ -31,8 +31,10 @@ public class TargetTurret extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		shooter.targetTurret();
-		System.out.println("Spinning");
+		//shooter.targetTurret();
+		System.out.println("Receiving Angle");
+		shooter.receiveAngle();
+		
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

@@ -55,6 +55,7 @@ public class OI {
 	private static Button reverseShoot;
 	private static Button turretLeft;
 	private static Button turretRight;
+	private static Button targetTurret;
 
 	public static void initialize() {
 	
@@ -68,6 +69,7 @@ public class OI {
 		reverseShoot = RobotMap.REVERSE_SHOOT;
 		turretLeft = RobotMap.TURRET_LEFT;
 		turretRight = RobotMap.TURRET_RIGHT;
+		targetTurret = RobotMap.TARGET_TURRET;
 	
 		hangerSpin.whileHeld(new HangerSpin());
 		shiftGear.whileHeld(new ShiftLowGear());
@@ -79,6 +81,7 @@ public class OI {
 		reverseShoot.whileHeld(new ReverseShoot());
 		turretLeft.whileHeld(new TurretLeft());
 		turretRight.whileHeld(new TurretRight());
+		targetTurret.whileHeld(new TargetTurret());
 		
 	}
 }
