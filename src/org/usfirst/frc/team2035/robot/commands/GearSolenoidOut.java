@@ -14,6 +14,7 @@ import org.usfirst.frc.team2035.robot.Robot;
 
 /**
  * Command to push the gear piston out
+ * @author Team 2035
  */
 public class GearSolenoidOut extends Command {
 
@@ -22,6 +23,8 @@ public class GearSolenoidOut extends Command {
 
     /**
      * Creates a new GearSolenoidOut command
+     * Initializes the GearSystem subsystem
+     * Requires GearSystem
      */
     public GearSolenoidOut() {
     	super("GearSystem");
@@ -39,6 +42,7 @@ public class GearSolenoidOut extends Command {
  	
  	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Sets the solenoid to forwards
 	 */
     protected void execute() {
     	gearSystem.gearSolenoidSetForward();
@@ -54,6 +58,7 @@ public class GearSolenoidOut extends Command {
     
     /**
 	 * Called once after isFinished returns true
+	 * Sets the solenoid back to middle
 	 */
  	@Override
  	protected void end() {
@@ -62,6 +67,7 @@ public class GearSolenoidOut extends Command {
      
  	/**
 	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 * Sets the solenoid back to middle
 	 */
  	@Override
  	protected void interrupted() {

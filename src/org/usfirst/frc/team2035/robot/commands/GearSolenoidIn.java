@@ -14,6 +14,7 @@ import org.usfirst.frc.team2035.robot.Robot;
 
 /**
  * Command to pull the gear piston in
+ * @author Team 2035
  */
 public class GearSolenoidIn extends Command {
 	
@@ -22,6 +23,8 @@ public class GearSolenoidIn extends Command {
 
     /**
      * Creates a new GearSolenoidIn Command
+     * Initializes the GearSystem subsystem
+     * Requires GearSystem
      */
     public GearSolenoidIn() {
     	super("Gear System");
@@ -39,6 +42,7 @@ public class GearSolenoidIn extends Command {
  	
  	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Sets the gear solenoid to reverse
 	 */
     protected void execute() {
     	gearSystem.gearSolenoidSetReverse();
@@ -54,6 +58,7 @@ public class GearSolenoidIn extends Command {
     
     /**
 	 * Called once after isFinished returns true
+	 * Returns the solenoid to center
 	 */
  	@Override
  	protected void end() {
@@ -62,6 +67,7 @@ public class GearSolenoidIn extends Command {
     
  	/**
 	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 * Returns the solenoid to center
 	 */
  	@Override
  	protected void interrupted() {

@@ -13,17 +13,23 @@ import org.usfirst.frc.team2035.robot.Robot;
 import org.usfirst.frc.team2035.robot.OI;
 
 /**
- *
+ * Command to turn the turret to the left
+ * @author Team 2035
  */
 public class TurretLeft extends Command {
 	
 	public static OI oi;
 	public static Shooter shooter;
 	
+	/**
+	 * Creates a new TurretLeft command
+	 * Initializes shooter subsystem
+	 * Requires Shooter
+	 */
 	public TurretLeft() {
 		super("Turret Left");
 		shooter = Robot.getShooter();
-		
+		requires(shooter);
 	}
 
 	/**
@@ -36,6 +42,7 @@ public class TurretLeft extends Command {
 
 	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Moves the turret to the left
 	 */
 	@Override
 	protected void execute() {
@@ -53,6 +60,7 @@ public class TurretLeft extends Command {
 
 	/**
 	 * Called once after isFinished returns true
+	 * Stops the turret
 	 */
 	@Override
 	protected void end() {
@@ -61,6 +69,7 @@ public class TurretLeft extends Command {
 
 	/**
 	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 * Stops the turret
 	 */
 	@Override
 	protected void interrupted() {

@@ -15,6 +15,7 @@ import org.usfirst.frc.team2035.robot.OI;
 
 /**
  * Command to receive a value from the NetworkTable
+ * @author Team 2035
  */
 public class GetNetworkTableValue extends Command {
 	
@@ -23,6 +24,8 @@ public class GetNetworkTableValue extends Command {
 	
 	/**
 	 * Creates a new GetNetworkTableValue command
+	 * Initializes Shooter subsystem
+	 * Requires Shooter
 	 */
 	public GetNetworkTableValue() {
 		// Use requires() here to declare subsystem dependencies
@@ -41,6 +44,7 @@ public class GetNetworkTableValue extends Command {
 
 	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Receives an angle from the NetworkTable
 	 */
 	@Override
 	protected void execute() {

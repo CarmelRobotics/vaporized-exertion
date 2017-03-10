@@ -25,6 +25,8 @@ public class ShiftLowGear extends Command {
 
     /**
      * Creates a new ShiftLowGear command
+     * Initializes drive train subsystem
+     * Requires DriveTrain
      */
     public ShiftLowGear() {
     	super("StandardDrive");
@@ -35,6 +37,7 @@ public class ShiftLowGear extends Command {
     
     /**
 	 * Called just before this Command runs the first time
+	 * Shifts into low gear
 	 */
     protected void initialize() {
     	System.out.println("Init");
@@ -44,6 +47,7 @@ public class ShiftLowGear extends Command {
     
     /**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Shifts into low gear
 	 */
     protected void execute() {
     	System.out.println("exe");
@@ -60,6 +64,7 @@ public class ShiftLowGear extends Command {
     
     /**
 	 * Called once after isFinished returns true
+	 * Shifts back into high gear
 	 */
     protected void end() {
     	System.out.println("end");
@@ -69,6 +74,7 @@ public class ShiftLowGear extends Command {
     
     /**
 	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 * Shifts back into high gear
 	 */
     protected void interrupted() {
     	System.out.println("interrupted");

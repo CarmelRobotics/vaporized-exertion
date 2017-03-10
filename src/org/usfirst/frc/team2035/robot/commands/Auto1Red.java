@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.Timer;
 
 /**
  * Autonomous to drive forward and place a gear on the hook while on the RED ALLIANCE
+ * @author Team 2035
  */
 public class Auto1Red extends Command {
 	
@@ -27,18 +28,20 @@ public class Auto1Red extends Command {
 	
 	/**
 	 * Creates a new Auto1Red command
+	 * Initializes driver and shooter subsystems
+	 * Requires DriveTrain subsystem
 	 */
 	public Auto1Red() {
 		super("Autonomous 1 Red");
 		driver = Robot.getDriveTrain();
 		shooter = Robot.getShooter();
 		bs = Robot.getBallSucker();
-		
 		requires(driver);
 	}
 
 	/**
 	 * Called just before this Command runs the first time
+	 * Begins the autonomous timer
 	 */
 	@Override
 	protected void initialize() {
@@ -48,6 +51,7 @@ public class Auto1Red extends Command {
 
 	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Drives forwards for 1.9 seconds at .4 speed
 	 */
 	@Override
 	protected void execute() {

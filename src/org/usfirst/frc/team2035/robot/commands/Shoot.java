@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * Command to shoot balls
+ * @author Team 2035
  */
 public class Shoot extends Command { 
 
@@ -22,6 +23,8 @@ public class Shoot extends Command {
 	
 	/**
 	 * Creates a new Shoot command
+	 * Initializes shooter subsystem
+	 * Requires Shooter
 	 */
 	public Shoot(){
 		super("Shoot");
@@ -39,6 +42,7 @@ public class Shoot extends Command {
 	
 	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Shoots the ball when in manual mode (fix this)
 	 */
 	@Override
 	protected void execute() {
@@ -57,6 +61,7 @@ public class Shoot extends Command {
 	
 	/**
 	 * Called once after isFinished returns true
+	 * Stops the shooter
 	 */ 
 	@Override
 	protected void end() {
@@ -65,6 +70,7 @@ public class Shoot extends Command {
 	
 	/**
 	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 * Stops the shooter
 	 */
 	@Override
 	protected void interrupted() {

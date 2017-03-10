@@ -15,6 +15,7 @@ import org.usfirst.frc.team2035.robot.OI;
 
 /**
  * Command to receive a value from the ultrasonic sensor
+ * @author Team 2035
  */
 public class GetUltraValues extends Command {
 	
@@ -23,6 +24,8 @@ public class GetUltraValues extends Command {
 	
 	/**
 	 * Creates a new GetUltraValues command
+	 * Initializes the ultrasonic subsystem
+	 * Maxbotix Ultrasonic is not a subsystem, so it does not require it
 	 */
 	public GetUltraValues() {
 		// Use requires() here to declare subsystem dependencies
@@ -41,6 +44,7 @@ public class GetUltraValues extends Command {
 
 	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Receives the range and prints the distance with the voltage
 	 */
 	@Override
 	protected void execute() {
@@ -49,11 +53,6 @@ public class GetUltraValues extends Command {
 		System.out.println("VOLTAGE: " + voltage);
 		System.out.println("DISTANCE: " + distance);
 		System.out.println("-----------------------------------------------------------");
-	}
-	
-	public double output() {
-		double distance = ultraSonic.getRangeInCM();
-		return distance;
 	}
 
 	/**

@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * Command to spit balls back out
+ * @author Team 2035
  */
 public class BallOutake extends Command{ 
 

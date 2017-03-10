@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * Command to intake balls from off the ground
+ * @author Team 2035
  */
 public class BallIntake extends Command { 
 
@@ -24,6 +25,8 @@ public class BallIntake extends Command {
 	
 	/**
 	 * Creates a new BallIntake command
+	 * Initializes BallSucker and Elevator subsystems
+	 * Requires BallSucker
 	 */
 	public BallIntake(){
 		super("Spin In");
@@ -33,7 +36,16 @@ public class BallIntake extends Command {
 	}
 	
 	/**
+	 * Called just before this Command runs the first time
+	 */
+	@Override
+	protected void initialize() {
+		oi = new OI();
+	}
+	
+	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Spins ball intake and the elevator motors forwards
 	 */
 	@Override
 	protected void execute() {
@@ -42,7 +54,16 @@ public class BallIntake extends Command {
 	}
 	
 	/**
+	 * Make this false because the intake continues running
+	 * @return false
+	 */
+	protected boolean isFinished() {
+		return false;
+	}
+	
+	/**
 	 * Called once after isFinished returns true
+	 * Stops the intake and elevator motors
 	 */
 	@Override
 	protected void end() {
@@ -50,30 +71,14 @@ public class BallIntake extends Command {
 		el.stopElevator();
 	}
 
-	
-	/**
-	 * Called just before this Command runs the first time
-	 */
-	@Override
-	protected void initialize() {
-		oi = new OI();
-		
-	}
 	/**
 	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 * Stops the intake and elevator motors
 	 */
 	@Override
 	protected void interrupted() {
 		bs.spinStop();
 		el.stopElevator();
-		
-	}
-	/**
-	 * Make this false because the intake continues running
-	 * @return false
-	 */
-	protected boolean isFinished() {
-		return false;
 	}
 	
 }

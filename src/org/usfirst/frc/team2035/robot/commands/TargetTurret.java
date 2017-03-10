@@ -22,6 +22,8 @@ public class TargetTurret extends Command {
 	
 	/**
 	 * Creates a new TargetTurret command
+	 * Initializes shooter subsystem
+	 * Requires Shooter
 	 */
 	public TargetTurret() {
 		// Use requires() here to declare subsystem dependencies
@@ -41,6 +43,7 @@ public class TargetTurret extends Command {
 
 	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Moves the turret to where the target is
 	 */
 	@Override
 	protected void execute() {
@@ -60,6 +63,7 @@ public class TargetTurret extends Command {
 
 	/**
 	 * Called once after isFinished returns true
+	 * Stops the turret
 	 */
 	@Override
 	protected void end() {
@@ -68,6 +72,7 @@ public class TargetTurret extends Command {
 
 	/**
 	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 * Stops the turret
 	 */
 	@Override
 	protected void interrupted() {

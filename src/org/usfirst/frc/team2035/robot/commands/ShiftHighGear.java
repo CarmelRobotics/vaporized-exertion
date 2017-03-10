@@ -25,6 +25,8 @@ public class ShiftHighGear extends Command {
 
     /**
      * Creates a new ShiftHighGear command
+     * Initializes drive train subsystem
+     * Requires DriveTrain
      */
     public ShiftHighGear() {
     	super("StandardDrive");
@@ -35,6 +37,7 @@ public class ShiftHighGear extends Command {
     
     /**
 	 * Called just before this Command runs the first time
+	 * Shifts into high gear
 	 */
     protected void initialize() {
        	//System.out.println("HighButtonPressed");
@@ -44,6 +47,7 @@ public class ShiftHighGear extends Command {
     
     /**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Shifts into high gear
 	 */
     protected void execute() {
        	//System.out.println("HighButtonPressed");

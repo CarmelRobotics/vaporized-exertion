@@ -14,6 +14,7 @@ import org.usfirst.frc.team2035.robot.Robot;
 
 /**
  * Command to toggle whether the arm is up or down
+ * @author Team 2035
  */
 public class ToggleArm extends Command {
 	
@@ -22,9 +23,13 @@ public class ToggleArm extends Command {
 	
 	/**
 	 * Creates a new ToggleArm command
+	 * Initializes ball intake subsystem
+	 * Requires BallSucker
 	 */
 	public ToggleArm() {
+		super("Toggle Arm");
 		bs = Robot.getBallSucker();
+		requires(bs);
 	}
 
 	/**
@@ -37,6 +42,8 @@ public class ToggleArm extends Command {
 
 	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * If the arm is down, moves it up
+	 * If the arm is up, moves it down
 	 */
 	@Override
 	protected void execute() {

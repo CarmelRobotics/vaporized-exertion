@@ -14,6 +14,7 @@ import org.usfirst.frc.team2035.robot.Robot;
 
 /**
  * Command to toggle between manual and vision mode
+ * @author Team 2035
  */
 public class ToggleVision extends Command {
 	
@@ -22,9 +23,13 @@ public class ToggleVision extends Command {
 	
 	/**
 	 * Creates a new Toggle Vision command
+	 * Initializes shooter subsystem
+	 * Requires Shooter
 	 */
 	public ToggleVision() {
+		super("Toggle Vision");
 		shoot = Robot.getShooter();
+		requires(shoot);
 	}
 
 	/**
@@ -37,6 +42,8 @@ public class ToggleVision extends Command {
 
 	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * If shooter is in manual mode, switch to PID
+	 * If shooter is in PID mode, switch to manual
 	 */
 	@Override
 	protected void execute() {

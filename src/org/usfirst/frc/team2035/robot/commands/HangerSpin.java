@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * Command to spin the hanging mechanism
+ * @author Team 2035
  */
 public class HangerSpin extends Command {
 	
@@ -22,6 +23,8 @@ public class HangerSpin extends Command {
 	
 	/**
 	 * Creates a new HangerSpin Command
+	 * Initializes hanger subsystem
+	 * Requires Hanger
 	 */
 	public HangerSpin() {
 		super("HangerSpin");
@@ -39,6 +42,7 @@ public class HangerSpin extends Command {
 
 	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Spins the hanger in reverse
 	 */
 	@Override
 	protected void execute() {
@@ -56,6 +60,7 @@ public class HangerSpin extends Command {
 
 	/**
 	 * Called once after isFinished returns true
+	 * Stops the hanger motor
 	 */
 	@Override
 	protected void end() {
@@ -64,6 +69,7 @@ public class HangerSpin extends Command {
 
 	/**
 	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 * Stops the hanger motor
 	 */
 	@Override
 	protected void interrupted() {

@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * Command to spin the shooting mechanism backwards
+ * @author Team 2035
  */
 public class ReverseShoot extends Command{ 
 
@@ -22,6 +23,8 @@ public class ReverseShoot extends Command{
 	
 	/**
 	 * Creates a new ReverseShoot command
+	 * Initializes shooter subsystem
+	 * Requires Shooter
 	 */
 	public ReverseShoot(){
 		super("Reverse Shoot");
@@ -39,6 +42,7 @@ public class ReverseShoot extends Command{
 	
 	/**
 	 * Called repeatedly when this Command is scheduled to run
+	 * Runs the reverseShoot method
 	 */
 	@Override
 	protected void execute() {
@@ -55,6 +59,7 @@ public class ReverseShoot extends Command{
 	
 	/**
 	 * Called once after isFinished returns true
+	 * Stops the shooter
 	 */
 	@Override
 	protected void end() {
@@ -63,6 +68,7 @@ public class ReverseShoot extends Command{
 
 	/**
 	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 * Stops the shooter
 	 */
 	@Override
 	protected void interrupted() {
