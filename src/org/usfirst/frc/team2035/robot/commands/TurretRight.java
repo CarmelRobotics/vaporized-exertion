@@ -34,26 +34,34 @@ public class TurretRight extends Command {
 		oi = new OI();
 	}
 
-	// Called repeatedly when this Command is scheduled to run
+	/**
+	 * Called repeatedly when this Command is scheduled to run
+	 */
 	@Override
 	protected void execute() {
 		shooter.turretMoveRight();
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
+	/**
+	 * Make this false so the turret continues to turn
+	 * @return false
+	 */
 	@Override
 	protected boolean isFinished() {
 		return false;
 	}
 
-	// Called once after isFinished returns true
+	/**
+	 * Called once after isFinished returns true
+	 */
 	@Override
 	protected void end() {
 		shooter.manualTurretStop();
 	}
 
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
+	/**
+	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 */
 	@Override
 	protected void interrupted() {
 		shooter.manualTurretStop();

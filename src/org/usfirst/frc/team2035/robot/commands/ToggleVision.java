@@ -13,13 +13,16 @@ import org.usfirst.frc.team2035.robot.OI;
 import org.usfirst.frc.team2035.robot.Robot;
 
 /**
- *
+ * Command to toggle between manual and vision mode
  */
 public class ToggleVision extends Command {
 	
 	private Shooter shoot;
 	public static OI oi;
 	
+	/**
+	 * Creates a new Toggle Vision command
+	 */
 	public ToggleVision() {
 		shoot = Robot.getShooter();
 	}
@@ -32,7 +35,9 @@ public class ToggleVision extends Command {
 		oi = new OI();
 	}
 
-	// Called repeatedly when this Command is scheduled to run
+	/**
+	 * Called repeatedly when this Command is scheduled to run
+	 */
 	@Override
 	protected void execute() {
 		if (Shooter.manual) {
@@ -43,21 +48,29 @@ public class ToggleVision extends Command {
 		}
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
+	/**
+	 * Make this true because a toggle switches once
+	 * @return true
+	 */
 	@Override
 	protected boolean isFinished() {
 		return true;
 	}
 
-	// Called once after isFinished returns true
+	/**
+	 * Called once after isFinished returns true
+	 */
 	@Override
 	protected void end() {
+		
 	}
 
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
+	/**
+	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 */
 	@Override
 	protected void interrupted() {
+		
 	}
 }
 

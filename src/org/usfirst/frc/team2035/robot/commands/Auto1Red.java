@@ -66,8 +66,6 @@ public class Auto1Red extends Command {
 			driver.drive(-.4);
 		}
 		//TODO: Add gear mechanism
-		
-		
 	}
 
 	/**

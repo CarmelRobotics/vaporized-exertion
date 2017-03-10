@@ -13,51 +13,66 @@ import org.usfirst.frc.team2035.robot.subsystems.BallSucker;
 import org.usfirst.frc.team2035.robot.subsystems.Elevator;
 import edu.wpi.first.wpilibj.command.Command;
 
+/**
+ * Command to spit balls back out
+ */
 public class BallOutake extends Command{ 
 
 	public static OI oi;
 	private final BallSucker bs;
 	private final Elevator el;
+	
+	/**
+	 * Creates a new BallOutake command
+	 */
 	public BallOutake(){
 		super("Spin In");
-		
-		
 		bs = Robot.getBallSucker();
 		el = Robot.getElevator();
 		requires(bs);
 	}
-	
-	@Override
-	protected void execute() {
-		bs.spinOut();
-		el.lowerElevator();
-	}
-	
-	 
-	@Override
-	protected void end() {
-		bs.spinStop();
-		el.stopElevator();
-	}
-
 	
 	/**
 	 * Called just before this Command runs the first time
 	 */
 	@Override
 	protected void initialize() {
-		oi = new OI();
-		
+		oi = new OI();	
+	}
+	
+	/**
+	 * Called repeatedly when this Command is scheduled to run
+	 */
+	@Override
+	protected void execute() {
+		bs.spinOut();
+		el.lowerElevator();
+	}
+	
+	/**
+	 * Make this false because the intake continues running
+	 * @return false
+	 */
+	protected boolean isFinished() {
+		return false;
+	}
+	
+	/**
+	 * Called once after isFinished returns true
+	 */
+	@Override
+	protected void end() {
+		bs.spinStop();
+		el.stopElevator();
 	}
 
+	/**
+	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 */
 	@Override
 	protected void interrupted() {
 		bs.spinStop();
 		el.stopElevator();
-		
-	}
-	protected boolean isFinished() {
-		return false;
 	}
 	
 }

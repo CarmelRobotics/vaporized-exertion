@@ -14,19 +14,21 @@ import org.usfirst.frc.team2035.robot.subsystems.MaxbotixUltrasonic;
 import org.usfirst.frc.team2035.robot.OI;
 
 /**
- *
+ * Command to receive a value from the ultrasonic sensor
  */
 public class GetUltraValues extends Command {
 	
 	private final MaxbotixUltrasonic ultraSonic;
 	public static OI oi;
 	
+	/**
+	 * Creates a new GetUltraValues command
+	 */
 	public GetUltraValues() {
 		// Use requires() here to declare subsystem dependencies
 		super("Get Ultra Values");
 		ultraSonic = Robot.ultraSonic;
 		//requires(ultraSonic); ultraSonic is not a Subsystem
-		
 	}
 
 	/**
@@ -37,7 +39,9 @@ public class GetUltraValues extends Command {
 		oi = new OI();
 	}
 
-	// Called repeatedly when this Command is scheduled to run
+	/**
+	 * Called repeatedly when this Command is scheduled to run
+	 */
 	@Override
 	protected void execute() {
 		double voltage = ultraSonic.getVoltage();
@@ -52,21 +56,28 @@ public class GetUltraValues extends Command {
 		return distance;
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
+	/**
+	 * Make this false because you want to continue receiving values
+	 * @return false
+	 */
 	@Override
 	protected boolean isFinished() {
 		return false;
 	}
 
-	// Called once after isFinished returns true
+	/**
+	 * Called once after isFinished returns true
+	 */
 	@Override
 	protected void end() {
 
 	}
 
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
+	/**
+	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 */
 	@Override
 	protected void interrupted() {
+		
 	}
 }

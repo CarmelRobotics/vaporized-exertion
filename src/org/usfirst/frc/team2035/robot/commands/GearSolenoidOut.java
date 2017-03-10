@@ -9,25 +9,24 @@ package org.usfirst.frc.team2035.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team2035.robot.subsystems.GearSystem;
-
 import org.usfirst.frc.team2035.robot.OI;
 import org.usfirst.frc.team2035.robot.Robot;
 
 /**
- *
- * @author Team 2035
+ * Command to push the gear piston out
  */
 public class GearSolenoidOut extends Command {
-
 
     private final GearSystem gearSystem;
     public static OI oi; 
 
+    /**
+     * Creates a new GearSolenoidOut command
+     */
     public GearSolenoidOut() {
     	super("GearSystem");
     	gearSystem = Robot.getGearSystem();
     	requires(gearSystem);
-    
     }
     
     /**
@@ -37,26 +36,36 @@ public class GearSolenoidOut extends Command {
  	protected void initialize() {
  		oi = new OI();
  	}
-    
+ 	
+ 	/**
+	 * Called repeatedly when this Command is scheduled to run
+	 */
     protected void execute() {
-    
     	gearSystem.gearSolenoidSetForward();
-    
     }
-      
+    
+    /**
+	 * Make this false
+	 * @return false
+	 */
     protected boolean isFinished() {
     	return false;
     }
     
- // Called once after isFinished returns true
+    /**
+	 * Called once after isFinished returns true
+	 */
  	@Override
  	protected void end() {
  		gearSystem.GearSolenoidStop();
  	} 
      
- // Called when another command which requires one or more of the same
- 	// subsystems is scheduled to run
+ 	/**
+	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 */
  	@Override
  	protected void interrupted() {
+ 		gearSystem.GearSolenoidStop();
  	}
+ 	
  }

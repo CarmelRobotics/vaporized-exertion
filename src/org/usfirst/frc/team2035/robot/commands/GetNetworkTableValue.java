@@ -14,19 +14,21 @@ import org.usfirst.frc.team2035.robot.subsystems.Shooter;
 import org.usfirst.frc.team2035.robot.OI;
 
 /**
- *
+ * Command to receive a value from the NetworkTable
  */
 public class GetNetworkTableValue extends Command {
 	
 	private final Shooter shooter;
 	public static OI oi;
 	
+	/**
+	 * Creates a new GetNetworkTableValue command
+	 */
 	public GetNetworkTableValue() {
 		// Use requires() here to declare subsystem dependencies
 		super("Get Count");
 		shooter = Robot.getShooter();
 		requires(shooter);
-		
 	}
 
 	/**
@@ -37,27 +39,36 @@ public class GetNetworkTableValue extends Command {
 		oi = new OI();
 	}
 
-	// Called repeatedly when this Command is scheduled to run
+	/**
+	 * Called repeatedly when this Command is scheduled to run
+	 */
 	@Override
 	protected void execute() {
 		shooter.receiveAngle();
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
+	/**
+	 * Make this false because you want to continue receiving values
+	 * @return false
+	 */
 	@Override
 	protected boolean isFinished() {
 		return false;
 	}
 
-	// Called once after isFinished returns true
+	/**
+	 * Called once after isFinished returns true
+	 */
 	@Override
 	protected void end() {
 		
 	}
 
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
+	/**
+	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 */
 	@Override
 	protected void interrupted() {
+		
 	}
 }

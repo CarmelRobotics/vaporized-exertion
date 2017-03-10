@@ -32,14 +32,18 @@ public class BallIntake extends Command {
 		requires(bs);
 	}
 	
-	
+	/**
+	 * Called repeatedly when this Command is scheduled to run
+	 */
 	@Override
 	protected void execute() {
 		bs.spinIn();
 		el.liftElevator();
 	}
 	
-	 
+	/**
+	 * Called once after isFinished returns true
+	 */
 	@Override
 	protected void end() {
 		bs.spinStop();
@@ -55,13 +59,19 @@ public class BallIntake extends Command {
 		oi = new OI();
 		
 	}
-
+	/**
+	 * Called when another command which requires one or more of the same subsystems is scheduled to run
+	 */
 	@Override
 	protected void interrupted() {
 		bs.spinStop();
 		el.stopElevator();
 		
 	}
+	/**
+	 * Make this false because the intake continues running
+	 * @return false
+	 */
 	protected boolean isFinished() {
 		return false;
 	}
