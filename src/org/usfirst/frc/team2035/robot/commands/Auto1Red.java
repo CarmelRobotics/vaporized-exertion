@@ -67,7 +67,7 @@ public class Auto1Red extends Command {
 		//shooter.stopShoot();
 		double currentTime = autoTimer.get();
 		while(autoTimer.get() <= (currentTime + 1.9)) {
-			driver.drive(-.4);
+			driver.drive(-.4, 0.0);
 		}
 		//TODO: Add gear mechanism
 	}

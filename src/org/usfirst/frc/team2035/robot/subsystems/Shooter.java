@@ -114,7 +114,7 @@ public class Shooter extends Subsystem {
 		double v = 0.0;
 		double y = Robot.getUltrasonic().getRangeInCM();
 		double beta = 0.0;
-		//double angle = Math.arccos((g*x)/v)-beta;
+		double angle = Math.acos((g*x)/v)-beta;
 		return 0.0;
 	}
 	

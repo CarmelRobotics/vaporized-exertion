@@ -109,6 +109,10 @@ public class RobotMap {
 	public static final double DEGREES_PER_ROTATION = DEGREES_PER_GROOVE*15; //degrees per rotation of the motor
 	public static final double ROTATIONS_RIGHT = 35/15;
 	public static final double ROTATIONS_LEFT = -(35/15);
+	
+	public static final double LOWEST_DEGREE = 0;
+	public static final double HIGHEST_DEGREE = 0;
+	public static final double DEGREES_PER_EYELID_GROOVE = 1;
 	//public static final double ROTATIONS_RIGHT = (DEGREES_RIGHT/DEGREES_PER_ROTATION)-.5;
 	//public static final double ROTATIONS_LEFT = -(DEGREES_LEFT/DEGREES_PER_ROTATION)+.5;
 		
