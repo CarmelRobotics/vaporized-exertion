@@ -20,7 +20,7 @@ public class ArmDown extends Command{
 	
 	@Override
 	protected void execute() {
-		bs.armDown();
+		bs.armDown(); 
 		
 	}
 	protected boolean isFinished()
